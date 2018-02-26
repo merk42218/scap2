@@ -1,0 +1,11 @@
+%h1 Создание нового значения
+%ul.pagination
+  %li.page-item
+    %a.page-link.bc{:href => "/welcome/index"} Главная
+  %li.page-item
+    %a.page-link.bc{:href => characteristic_values_path} Значения
+  %li.page-item
+    %a.page-link.active-link{:href => "#"} Создание нового значения
+
+
+= render 'form'

@@ -1,0 +1,29 @@
+= form_for @weight do |f|
+  - if @weight.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@weight.errors.count, "ошибок")} Не соблюдаются ограничения целостности:"
+      %ul
+        - @weight.errors.full_messages.each do |message|
+          %li= message
+
+  .container-2.col-md-6.col.xs-12.my_form_style
+    %form
+      .row
+        .col-25
+          = f.label :name
+        .col-75
+          = f.text_field :name,  :placeholder => "Название"
+      .row
+        .col-25
+          = f.label :weight
+        .col-75
+          = f.number_field :weight
+      .row
+        .col-25
+          = f.label :part_of_characteristic
+        .col-75
+          = f.select :part_of_characteristic_id, options_for_select(@poc), {}, class: 'form-control'
+
+
+      .row
+        = f.submit 'Сохранить'

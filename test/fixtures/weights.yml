@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  weight: 1
+  part_of_characteristic: one
+
+two:
+  name: MyString
+  weight: 1
+  part_of_characteristic: two

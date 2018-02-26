@@ -1,0 +1,58 @@
+.content-wrapper
+  .container-fluid
+    / Breadcrumbs
+  %ul.pagination
+    %li.page-item
+      %a.page-link.bc{:href => "/welcome/index"} Главная
+    %li.page-item
+      %a.page-link.bc{:href => characteristics_path} Характеристики
+    %li.page-item
+      %a.page-link.active-link{:href => "#"} Просмотр
+
+
+
+  .table-responsive.my_table_style
+    %table.table
+      %thead
+        %tr
+          %th= Characteristic.human_attribute_name(:name)
+          %th=  Characteristic.human_attribute_name(:information_system)
+          %th= Characteristic.human_attribute_name(:type_of_data)
+          %th=  Characteristic.human_attribute_name(:result_type)
+          %th= Characteristic.human_attribute_name(:address_id)
+
+      %tbody
+        %tr
+          %td= @characteristic.name
+          %td= (InformationSystem.find(@characteristic.information_system_id)).name
+          %td= (Address.find(@characteristic.address_id)).name
+          %td= @characteristic.type_of_data
+          %td= @characteristic.result_type
+
+
+
+
+  .col-md-3.col-centre.col-sm-6
+    = link_to t('Редактировать'), edit_characteristic_path(@characteristic), class: "btn btn-primary buttons"
+-#
+-# %p#notice= notice
+-#
+-# %p
+-#   %b Name:
+-#   = @characteristic.name
+-# %p
+-#   %b Information system:
+-#   = @characteristic.information_system
+-# %p
+-#   %b Address:
+-#   = @characteristic.address
+-# %p
+-#   %b Type of data:
+-#   = @characteristic.type_of_data
+-# %p
+-#   %b Result type:
+-#   = @characteristic.result_type
+-#
+-# = link_to 'Edit', edit_characteristic_path(@characteristic)
+-# \|
+-# = link_to 'Back', characteristics_path

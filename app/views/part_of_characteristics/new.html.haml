@@ -1,0 +1,11 @@
+%h1 Создание новой характеристики
+%ul.pagination
+  %li.page-item
+    %a.page-link.bc{:href => "/welcome/index"} Главная
+  %li.page-item
+    %a.page-link.bc{:href => part_of_characteristics_path} Части характеристик
+  %li.page-item
+    %a.page-link.active-link{:href => "#"} Создание новой части характеристики
+
+
+= render 'form'

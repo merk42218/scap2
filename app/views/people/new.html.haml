@@ -1,0 +1,10 @@
+%h1 Создание нового сотрудника
+%ul.pagination
+  %li.page-item
+    %a.page-link.bc{:href => "/welcome/index"} Главная
+  %li.page-item
+    %a.page-link.bc{:href => people_path}  Сотрудники
+  %li.page-item
+    %a.page-link.active-link{:href => "#"} Новый сотрудник
+
+= render 'form'

@@ -1,0 +1,11 @@
+%h1 Создание нового веса
+%ul.pagination
+  %li.page-item
+    %a.page-link.bc{:href => "/welcome/index"} Главная
+  %li.page-item
+    %a.page-link.bc{:href => weights_path} Веса
+  %li.page-item
+    %a.page-link.active-link{:href => "#"} Создание нового веса
+
+
+= render 'form'

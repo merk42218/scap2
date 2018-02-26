@@ -1,0 +1,18 @@
+%h1.my-tit.row
+  .col-md-12
+    = t('headers.addresses.edit')
+
+%ul.pagination
+  %li.page-item
+    %a.page-link.bc{:href => "/welcome/index"} Главная
+  %li.page-item
+    %a.page-link.bc{:href => addresses_path}  Информационные системы
+  %li.page-item
+    %a.page-link.active-link{:href => "#"} Редактирование информационной системы
+= render 'form'
+
+-# = render 'form'
+-#
+-# = link_to 'Show', @address
+-# \|
+-# = link_to 'Back', addresses_path

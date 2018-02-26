@@ -1,0 +1,83 @@
+%h2.table_name
+  Веса
+
+%ul.pagination
+  %li.page-item.prev
+    %a.page-link.bc{:href => "/welcome/index"} Главная
+  %li.page-item.this
+    %a.page-link.this_page{:href => "#"} Веса
+
+
+.content-wrapper.my_table_style
+  .container-fluid
+    / Breadcrumbs
+
+  .table-responsive
+    %table#dataTable.table.my_table_style
+      %caption
+        = link_to new_weight_path, class: 'btn button_new' do
+          = fa_icon :plus
+          = t('headers.weights.new')
+      %thead
+        %tr
+          %th= Weight.human_attribute_name(:name)
+          %th= Weight.human_attribute_name(:weight)
+          %th= Weight.human_attribute_name(:part_of_characteristic)
+          %th
+          %th
+          %th
+
+      %tfoot
+        %tr
+          %th= Weight.human_attribute_name(:name)
+          %th= Weight.human_attribute_name(:weight)
+          %th= Weight.human_attribute_name(:part_of_characteristic)
+          %th
+          %th
+          %th
+
+      %tbody
+        - @weights.each do |weight|
+          %tr
+            %td= weight.name
+            %td= weight.weight
+            %td= (PartOfCharacteristic.find(weight.part_of_characteristic_id)).partname
+            %td
+              = link_to weight, class: 'btn button_show' do
+                = fa_icon :eye
+                = t('buttons.show')
+            %td
+              = link_to edit_weight_path(weight), class: 'btn button_edit' do
+                = fa_icon :edit
+                = t('buttons.edit')
+            %td
+              = link_to weight, method: :delete,
+              :data => { :confirm => t('buttons.confirm.weights') },
+              class: 'btn button_destroy' do
+                = fa_icon :times
+                = t('buttons.destroy')
+-# %h1 Listing weights
+-#
+-# %table
+-#   %thead
+-#     %tr
+-#       %th Name
+-#       %th Weight
+-#       %th Part of characteristic
+-#       %th
+-#       %th
+-#       %th
+-#
+-#   %tbody
+-#     - @weights.each do |weight|
+-#       %tr
+-#         %td= weight.name
+-#         %td= weight.weight
+-#         %td= weight.part_of_characteristic
+-#         %td= link_to 'Show', weight
+-#         %td= link_to 'Edit', edit_weight_path(weight)
+-#         %td= link_to 'Destroy', weight, method: :delete, data: { confirm: 'Are you sure?' }
+-#
+-# %br
+-#
+-# = link_to 'New Weight', new_weight_path

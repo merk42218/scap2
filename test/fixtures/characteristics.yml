@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  information_system: one
+  address: one
+  type_of_data: 1
+  result_type: 1
+
+two:
+  name: MyString
+  information_system: two
+  address: two
+  type_of_data: 1
+  result_type: 1

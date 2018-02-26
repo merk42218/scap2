@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  partname: MyString
+  characteristic: one
+  isweight: 1
+
+two:
+  partname: MyString
+  characteristic: two
+  isweight: 1

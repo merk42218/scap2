@@ -1,0 +1,70 @@
+%ul.pagination
+  %li.page-item.prev
+    %a.page-link.bc{:href => "/welcome/index"} Главная
+  %li.page-item.this
+    %a.page-link.active-link{:href => "#"} Адреса
+
+
+.content-wrapper.my_table_style
+  .container-fluid
+    / Breadcrumbs
+
+  .table-responsive
+    %table#dataTable.table.my_table_style
+      %caption
+        = link_to new_address_path, class: 'btn button_new' do
+          = fa_icon :plus
+          = t('headers.addresses.new')
+      %thead
+        %tr
+          %th= Address.human_attribute_name(:name)
+          %th
+          %th
+          %th
+
+      %tfoot
+        %tr
+          %th= Address.human_attribute_name(:name)
+          %th
+          %th
+          %th
+
+      %tbody
+        - @addresses.each do |address|
+          %tr
+            %td= address.name
+            %td
+              = link_to address, class: 'btn button_show' do
+                = fa_icon :eye
+                = t('buttons.show')
+            %td
+              = link_to edit_address_path(address), class: 'btn button_edit' do
+                = fa_icon :edit
+                = t('buttons.edit')
+            %td
+              = link_to address, :method => :delete,
+              :data => { :confirm => t('buttons.confirm.addresses') },
+              class: 'btn button_destroy' do
+                = fa_icon :times
+                = t('buttons.destroy')
+-# %h1 Listing addresses
+-#
+-# %table
+-#   %thead
+-#     %tr
+-#       %th Name
+-#       %th
+-#       %th
+-#       %th
+-#
+-#   %tbody
+-#     - @addresses.each do |address|
+-#       %tr
+-#         %td= address.name
+-#         %td= link_to 'Show', address
+-#         %td= link_to 'Edit', edit_address_path(address)
+-#         %td= link_to 'Destroy', address, method: :delete, data: { confirm: 'Are you sure?' }
+-#
+-# %br
+-#
+-# = link_to 'New Address', new_address_path

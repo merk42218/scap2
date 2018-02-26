@@ -1,0 +1,35 @@
+.content-wrapper
+  .container-fluid
+    / Breadcrumbs
+  %ul.pagination
+    %li.page-item
+      %a.page-link.bc{:href => "/welcome/index"} Главная
+    %li.page-item
+      %a.page-link.bc{:href => people_path} Сотрудники
+    %li.page-item
+      %a.page-link.active-link{:href => "#"} Просмотр
+
+
+
+  .table-responsive
+    %table.table
+      %thead
+        %tr
+          %th= Person.human_attribute_name(:name)
+
+      %tbody
+        %tr
+          %td= @person.name
+
+  .col-md-3.col-centre.col-sm-6
+    = link_to t('Редактировать'), edit_person_path(@person), class: "btn btn-primary buttons"
+
+-# %p#notice= notice
+-#
+-# %p
+-#   %b Name:
+-#   = @person.name
+-#
+-# = link_to 'Edit', edit_person_path(@person)
+-# \|
+-# = link_to 'Back', people_path

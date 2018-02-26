@@ -1,0 +1,15 @@
+%h1 Создание нового адреса
+%ul.pagination
+  %li.page-item
+    %a.page-link.bc{:href => "/welcome/index"} Главная
+  %li.page-item
+    %a.page-link.bc{:href => addresses_path}  Адреса
+  %li.page-item
+    %a.page-link.active-link{:href => "#"} Создание нового адреса
+
+= render 'form'
+-# %h1 New address
+-#
+-# = render 'form'
+-#
+-# = link_to 'Back', addresses_path

@@ -1,0 +1,40 @@
+= form_for @person do |f|
+  - if @person.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@person.errors.count, "ошибок")} Не соблюдаются ограничения целостности:"
+      %ul
+        - @person.errors.full_messages.each do |message|
+          %li= message
+
+
+
+  .container-2.col-md-6.col.xs-12.my_form_style
+    %form{:action => "/action_page.php"}
+      .row
+        .col-25
+          = f.label :name
+        .col-75
+          = f.text_field :name,  :placeholder => "Сотрудник"
+      .row
+        = f.submit 'Сохранить'
+= form_for @person do |f|
+  - if @person.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@person.errors.count, "error")} prohibited this address from being saved:"
+      %ul
+        - @person.errors.full_messages.each do |message|
+          %li= message
+
+-# = form_for @person do |f|
+-#   - if @person.errors.any?
+-#     #error_explanation
+-#       %h2= "#{pluralize(@person.errors.count, "error")} prohibited this person from being saved:"
+-#       %ul
+-#         - @person.errors.full_messages.each do |message|
+-#           %li= message
+-#
+-#   .field
+-#     = f.label :name
+-#     = f.text_field :name
+-#   .actions
+-#     = f.submit 'Save'

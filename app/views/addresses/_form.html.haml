@@ -1,0 +1,26 @@
+= form_for @address do |f|
+  - if @address.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@address.errors.count, "ошибок")} Не соблюдаются ограничения целостности:"
+      %ul
+        - @address.errors.full_messages.each do |message|
+          %li= message
+
+
+
+  .container-2.col-md-5.col.xs-12.my_form_style
+    %form
+      .row
+        .col-25
+          = f.label :name
+        .col-75
+          = f.text_field :name,  :placeholder => "Ссылка"
+      .row
+        = f.submit 'Сохранить'
+= form_for @address do |f|
+  - if @address.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@address.errors.count, "error")} prohibited this address from being saved:"
+      %ul
+        - @address.errors.full_messages.each do |message|
+          %li= message

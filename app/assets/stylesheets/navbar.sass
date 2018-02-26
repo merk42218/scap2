@@ -1,0 +1,107 @@
+$background-color-side: #262B33
+$background-color-name: #FFFFFF
+$sidebar-color-a: #3D4051
+$nav-color-active-button: #00635A
+$nav-height: 60px
+
+body
+  margin: 0
+
+.topnav
+  position: fixed
+  display: block
+  width: 100%
+  border-bottom: 1px solid $border-nav-color-h
+  height: $navbar-height
+  overflow: hidden
+  z-index: 1001
+  background-color: $background-color-navbar
+  .aleft a, .app-name
+    float: left
+    padding-bottom: 0
+  #button_sidebar2,   #button_sidebar1
+    float: left
+    padding-top: 15px
+    background-color: $background-color-name
+    // background-color: $button-sidebar2-color-bg
+    color: $button-sidebar2-color
+    height: 100%
+    width: 50px
+    z-index: 1001
+
+  .app-name
+    color: $color-app-name
+    // font-size: 30px
+    text-transform: uppercase
+    padding-left: 0
+    // margin-top: 10px
+    .img_n ,  span
+      padding-top: 15px
+      font-size: 25px
+      font-weight: 100 !important
+      font-family: 'Muli', Arial, sans-serif
+
+
+    margin-top: -5px
+    padding-right: 25px
+    background-color: $background-color-name
+    // background-color: $background-color-app-name
+    width: $app-name-width
+    padding: 4px 0px
+    display: block
+    font-size: 18px
+    text-align: center
+    font-weight: 400
+    line-height: 30px
+    *
+      display: inline-block
+  a
+    height: $navbar-height
+    font-family: 'FontAwesome'
+    float: right
+    display: block
+    color: $color-a-navbar
+    text-align: center
+    padding: 14px 16px
+    text-decoration: none
+    font-size: 17px
+    &:hover
+      background-color: $color-a-hover-navbar
+      color: black
+
+.active
+  background-color: $color-active-a-navbar
+  color: white
+.in_small_screen
+  display: none
+.topnav .icon
+  display: none
+
+@media screen and (max-width: 600px)
+  .topnav a
+    &:not(:first-child)
+      display: none
+    &.icon
+      float: right
+      display: block
+
+@media screen and (max-width: 600px)
+  .topnav
+    background-color: $background-color-name
+  #button_sidebar2
+    visibility: hidden
+  #button_sidebar1
+    visibility: hidden
+  .in_small_screen
+    display: block
+  .topnav.responsive
+    display: inline
+    position: relative
+    .icon
+      position: absolute
+      right: 0
+      top: 0
+    a
+      float: none
+      display: block
+      text-align: left

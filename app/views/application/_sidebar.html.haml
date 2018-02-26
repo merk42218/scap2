@@ -1,0 +1,82 @@
+-# #mySidenav.sidenav
+-#
+-#   =render 'application/inside'
+.wrapper
+  / Sidebar Holder
+  %nav#sidebar
+    .sidebar-header
+      %h3 Bootstrap Sidebar
+      %strong BS
+    %ul.list-unstyled.components
+      %li.active
+        %a{"aria-expanded" => "false", "data-toggle" => "collapse", :href => "#homeSubmenu"}
+          %i.glyphicon.glyphicon-home
+          Home
+        %ul#homeSubmenu.collapse.list-unstyled
+          %li
+            %a{:href => "#"} Home 1
+          %li
+            %a{:href => "#"} Home 2
+          %li
+            %a{:href => "#"} Home 3
+      %li
+        %a{:href => "#"}
+          %i.glyphicon.glyphicon-briefcase
+          About
+        %a{"aria-expanded" => "false", "data-toggle" => "collapse", :href => "#pageSubmenu"}
+          %i.glyphicon.glyphicon-duplicate
+          Pages
+        %ul#pageSubmenu.collapse.list-unstyled
+          %li
+            %a{:href => "#"} Page 1
+          %li
+            %a{:href => "#"} Page 2
+          %li
+            %a{:href => "#"} Page 3
+      %li
+        %a{:href => "#"}
+          %i.glyphicon.glyphicon-link
+          Portfolio
+      %li
+        %a{:href => "#"}
+          %i.glyphicon.glyphicon-paperclip
+          FAQ
+      %li
+        %a{:href => "#"}
+          %i.glyphicon.glyphicon-send
+          Contact
+    -# %ul.list-unstyled.CTAs
+    -#   %li
+    -#     %a.download{:href => "https://bootstrapious.com/tutorial/files/sidebar.zip"} Download source
+    -#   %li
+    -#     %a.article{:href => "https://bootstrapious.com/p/bootstrap-sidebar"} Back to article
+  / Page Content Holder
+  #content
+    %nav.navbar.navbar-default
+      .container-fluid
+        .navbar-header
+          %button#sidebarCollapse.btn.btn-info.navbar-btn{:type => "button"}
+            %i.glyphicon.glyphicon-align-left
+            %span Toggle Sidebar
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          %ul.nav.navbar-nav.navbar-right
+            %li
+              %a{:href => "#"} Page
+            %li
+              %a{:href => "#"} Page
+            %li
+              %a{:href => "#"} Page
+            %li
+              %a{:href => "#"} Page
+    %h2 Collapsible Sidebar Using Bootstrap 3
+    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    .line
+    %h2 Lorem Ipsum Dolor
+    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    .line
+    %h2 Lorem Ipsum Dolor
+    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    .line
+    %h3 Lorem Ipsum Dolor
+    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.

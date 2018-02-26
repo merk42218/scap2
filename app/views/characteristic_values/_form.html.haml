@@ -1,0 +1,64 @@
+= form_for @characteristic_value do |f|
+  - if @characteristic_value.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@characteristic_value.errors.count, "ошибок")} Не соблюдаются ограничения целостности:"
+      %ul
+        - @characteristic_value.errors.full_messages.each do |message|
+          %li= message
+
+
+
+  .container-2.col-md-6.col.xs-12.my_form_style
+    %form
+      .row
+        .col-md-2
+          = f.label :value
+        .col-md-9
+          = f.text_field :value
+      .row
+        .col-md-2
+          = f.label :part_of_characteristic
+        .col-md-9
+          = f.select :part_of_characteristic_id, options_for_select(@poc), {}, class: 'form-control'
+      .row
+        .col-md-2
+          = f.label :person
+        .col-md-9
+          = f.select :person_id, options_for_select(@people), {}, class: 'form-control'
+      .row
+        .col-md-2
+          = f.label :time
+        .col-md-9
+          = f.datetime_select :time
+
+      .row
+        = f.submit 'Сохранить'
+-# = form_for @characteristic_value do |f|
+-#   - if @characteristic_value.errors.any?
+-#     #error_explanation
+-#       %h2= "#{pluralize(@characteristic_value.errors.count, "error")} prohibited this address from being saved:"
+-#       %ul
+-#         - @characteristic_value.errors.full_messages.each do |message|
+-#           %li= message
+-# = form_for @characteristic_value do |f|
+-#   - if @characteristic_value.errors.any?
+-#     #error_explanation
+-#       %h2= "#{pluralize(@characteristic_value.errors.count, "error")} prohibited this characteristic_value from being saved:"
+-#       %ul
+-#         - @characteristic_value.errors.full_messages.each do |message|
+-#           %li= message
+-#
+-#   .field
+-#     = f.label :value
+-#     = f.text_field :value
+-#   .field
+-#     = f.label :part_of_characteristic_id
+-#     = f.text_field :part_of_characteristic_id
+-#   .field
+-#     = f.label :person_id
+-#     = f.text_field :person_id
+-#   .field
+-#     = f.label :time
+-#     = f.datetime_select :time
+-#   .actions
+-#     = f.submit 'Save'

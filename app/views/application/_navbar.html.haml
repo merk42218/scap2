@@ -1,0 +1,19 @@
+#myTopnav.topnav
+  %a.app-name{:href => "/welcome/index"}
+    %span
+      СКАП
+    .img_n{style: "color: #E8835C"}
+      %i.fa.fa-eye
+
+
+  %span#button_sidebar2.aleft{:style => "font-size:30px;cursor:pointer;display:none"}
+    %i.fa.fa-bars
+  %span#button_sidebar1.closebtn{:href => "#"}
+    %i.fa.fa-times
+  %a.active{:href => "#home"} Home
+  %a{:href => "#news"} News
+  %a{:href => "#contact"} Contact
+  %a{:href => "#about"} About
+  %a.icon{:href => "#",:id => "button_nav"} ☰
+  .in_small_screen
+    =render 'application/inside'

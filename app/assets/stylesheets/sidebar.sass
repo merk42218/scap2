@@ -1,0 +1,114 @@
+
+body
+  font-family: 'Muli', Arial, sans-serif
+#button_sidebar1, #button_sidebar2
+  font-size: 25px
+.sidenav
+  vertical-align: middle
+  .img_n, .fa-caret-down
+    vertical-align: middle
+
+    display: inline
+    color: $sidebar-icons-color !important
+    font-size: 24px
+    margin-right: 5px
+  font-family: 'Muli', Arial, sans-serif
+  text-transform: uppercase
+  a#button_sidebar1, a#button_sidebar2
+    padding-right: 0 !important
+    margin-right: 0 !important
+  border-right: 1px solid $border-nav-color-v
+  // border-top: 1px solid $border-nav-color
+  height: 100%
+  width: 250px
+  position: fixed
+  z-index: 1
+  top: $sidebar-top
+  left: 0
+  background-color: $background-color-sidebar
+  overflow-x: hidden
+  transition: 0.5s
+  padding-top: 60px
+  a#button_sidebar1, a#button_sidebar1
+    padding: 8px 8px 8px 32px
+    width: auto
+    text-decoration: none
+    font-size: 20px
+    color: #818181
+    display: block
+    transition: 0.3s
+    &:hover
+      color: #EE7648
+      span
+        border-bottom: 1px solid #EE7648
+  .closebtn
+    position: absolute
+    color: black
+    top: 0
+    right: 25px
+    font-size: 36px
+    margin-left: 50px
+.dropdown-btn
+  span
+    color: #EE7648
+.sidenav a, .dropdown-btn,
+  span
+    // padding-bottom: 10px
+    display: inline-block
+    vertical-align: middle
+    text-transform: uppercase
+    font-size: 11px
+    font-weight: bold
+  &:hover
+    color: #EE7648
+    span
+      border-bottom: 1px solid #EE7648
+  padding: 6px 8px 6px 16px
+  text-decoration: none
+  font-size: 11px
+  color: $sidebar-a-color
+  display: block
+  border: none
+  background: none
+  width: 100%
+  text-align: left
+  cursor: pointer
+  outline: none
+.sidenav a:hover, .dropdown-btn:hover
+  // color: white
+.active
+  background-color: green
+  color: #f1f1f1
+
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content
+
+.dropdown-container
+
+  display: none
+  background-color: $sidebar-dropdown-background-color
+  padding-left: 8px
+  a
+    // color: $sidebar-dropdown-color !important
+    &:hover
+      color: #EE7648
+      span
+        border-bottom: 1px solid #EE7648
+/* Optional: Style the caret down icon
+
+.fa-caret-down
+  float: right
+  color: black
+  padding-right: 8px
+@media screen and (max-height: 450px)
+  .sidenav
+    padding-top: 15px
+    a
+      font-size: 18px
+
+@media screen and (max-width: 600px)
+  .dropdown-btn
+    color: black
+
+  .sidenav
+    display: none

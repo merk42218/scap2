@@ -1,0 +1,88 @@
+%h2.table_name
+  Характеристика-значение
+
+%ul.pagination
+  %li.page-item.prev
+    %a.page-link.bc{:href => "/welcome/index"} Главная
+  %li.page-item.this
+    %a.page-link.this_page{:href => "#"} Характеристика-значение
+
+
+.content-wrapper.my_table_style
+  .container-fluid
+    / Breadcrumbs
+
+  .table-responsive
+    %table#dataTable.table.my_table_style
+      %caption
+        = link_to new_characteristic_value_path, class: 'btn button_new' do
+          = fa_icon :plus
+          = t('headers.characteristic_values.new')
+      %thead
+        %tr
+          %th= CharacteristicValue.human_attribute_name(:value)
+          %th= CharacteristicValue.human_attribute_name(:part_of_characteristic)
+          %th= CharacteristicValue.human_attribute_name(:person)
+          %th= CharacteristicValue.human_attribute_name(:time)
+          %th
+          %th
+          %th
+
+      %tfoot
+        %tr
+          %th= CharacteristicValue.human_attribute_name(:value)
+          %th= CharacteristicValue.human_attribute_name(:part_of_characteristic)
+          %th= CharacteristicValue.human_attribute_name(:person)
+          %th= CharacteristicValue.human_attribute_name(:time)
+          %th
+          %th
+          %th
+
+      %tbody
+        - @characteristic_values.each do |characteristic_value|
+          %tr
+            %td= characteristic_value.value
+            %td= (PartOfCharacteristic.find(characteristic_value.part_of_characteristic_id)).partname
+            %td= (Person.find(characteristic_value.person_id)).name
+            %td= characteristic_value.time
+            %td
+              = link_to characteristic_value, class: 'btn button_show' do
+                = fa_icon :eye
+                = t('buttons.show')
+            %td
+              = link_to edit_characteristic_value_path(characteristic_value), class: 'btn button_edit' do
+                = fa_icon :edit
+                = t('buttons.edit')
+            %td
+              = link_to characteristic_value, method: :delete,
+              :data => { :confirm => t('buttons.confirm.characteristic_values') },
+              class: 'btn button_destroy' do
+                = fa_icon :times
+                = t('buttons.destroy')
+-# %h1 Listing characteristic_values
+-#
+-# %table
+-#   %thead
+-#     %tr
+-#       %th Value
+-#       %th Part of characteristic
+-#       %th Person
+-#       %th Time
+-#       %th
+-#       %th
+-#       %th
+-#
+-#   %tbody
+-#     - @characteristic_values.each do |characteristic_value|
+-#       %tr
+-#         %td= characteristic_value.value
+-#         %td= characteristic_value.part_of_characteristic
+-#         %td= characteristic_value.person
+-#         %td= characteristic_value.time
+-#         %td= link_to 'Show', characteristic_value
+-#         %td= link_to 'Edit', edit_characteristic_value_path(characteristic_value)
+-#         %td= link_to 'Destroy', characteristic_value, method: :delete, data: { confirm: 'Are you sure?' }
+-#
+-# %br
+-#
+-# = link_to 'New Characteristic value', new_characteristic_value_path

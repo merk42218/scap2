@@ -1,0 +1,25 @@
+.content-wrapper
+  .container-fluid
+    / Breadcrumbs
+  %ul.pagination
+    %li.page-item
+      %a.page-link.bc{:href => "/welcome/index"} Главная
+    %li.page-item
+      %a.page-link.bc{:href => addresses_path} Адреса
+    %li.page-item
+      %a.page-link.active-link{:href => "#"} Просмотр
+
+
+
+  .table-responsive.my_table_style
+    %table.table
+      %thead
+        %tr
+          %th= Address.human_attribute_name(:name)
+
+      %tbody
+        %tr
+          %td= @address.name
+
+  .col-md-3.col-centre.col-sm-6
+    = link_to t('Редактировать'), edit_address_path(@address), class: "btn btn-primary buttons"

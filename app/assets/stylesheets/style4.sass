@@ -1,0 +1,305 @@
+.wrapper
+  display: flex
+  align-items: stretch
+#sidebar
+  * i
+    font-size: $sidebar-icin-size
+  ul li *
+    text-transform: uppercase
+    font-weight: 500
+#sidebar
+  border-right: $sidebar-border-right
+  *
+    word-wrap: break-word
+  min-width: $sidebar-width
+  max-width: $sidebar-width
+  background: $sidebar-bg-color
+  color: $sidebar-color
+  transition: all 0.3s
+
+  &.active
+    ul li a
+      font-size: 11px !important
+      i
+        font-size: 25px !important
+    min-width: 85px
+    max-width: 85px
+    text-align: center
+    .sidebar-header h3, .CTAs
+      display: none
+    .sidebar-header strong
+      display: block
+  ul li
+    padding-bottom: 20px
+    background-color: $sidebar-ul-li-background-color
+    border-bottom: $sidebar-border-bottom-ul-li
+    font-family: Roboto,sans-serif
+
+  ul li a
+    text-align: left
+    font-size: $sidebar-font-size-a-active-dropdown
+    font-family: Roboto,sans-serif
+    text-shadow: none
+    font-size: 13px
+    text-decoration: none
+    color: $sidebar-ul-li-a
+  &.active
+    ul
+      li a
+        padding: 20px 10px
+        text-align: center
+        font-size: $sidebar-font-size-a-active
+        i
+          margin-right: 0
+          display: block
+          font-size: $sidebar-font-size-a-i-active
+          margin-bottom: 5px
+      ul a
+        padding: 10px !important
+    a
+
+      &[aria-expanded="false"]::before, &[aria-expanded="true"]::before
+        top: auto
+        bottom: 5px
+        right: 50%
+        -webkit-transform: translateX(50%)
+        -ms-transform: translateX(50%)
+        transform: translateX(50%)
+  .sidebar-header
+    text-align: center
+    padding: 20px
+    padding-left: 0
+    background: $sidebar-app-name-bg-color
+    border-bottom: $sidebar-border-bottom
+    color: $sidebar-app-name-color
+    h3
+      font-weight: bold
+      font-size: $sidebar-app-name-font-size
+      padding-bottom: 0
+      padding-top: 3px
+      font-family: "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif
+
+    i
+        color: $sidebar-app-name-icon-color
+    strong
+      text-align: center
+      padding: 4px
+      margin-left: 12px
+      display: none
+      font-size: 2.5em
+      color: $sidebar-app-name-icon-color
+  ul
+    &.components
+      padding: 20px 0
+      // border-bottom: 1px solid #47748b
+    li
+      a
+        padding: 10px
+        font-size: $sidebar-font-size
+        display: block
+        &:hover
+          color: $sidebar-hover-link-color !important
+          background: $sidebar-hover-backgroubd-color
+          opacity: .9
+        i
+          margin-right: 10px
+          color: $sidebar-icon-color !important
+      &.active > a
+        color: $sidebar-a-active-color
+        background: $sidebar-a-active-bg-color
+
+a
+
+  &[aria-expanded="true"]
+    color: $sidebar-active-dropdown-ul-color
+    // background: $sidebar-active-dropdown-ul-bg
+  &[data-toggle="collapse"]
+    position: relative
+  &[aria-expanded="false"]::before
+    content: '\f107'
+    display: block
+    position: absolute
+    right: 20px
+    font-family:  'FontAwesome'
+    // font-size: 1.5em
+  &[aria-expanded="true"]::before
+    // font-size: 1.5em
+
+    content: '\f106'
+    display: block
+    position: absolute
+    right: 20px
+    font-family: 'FontAwesome'
+    // font-size: 0.6em
+    // content: '\e260'
+
+ul
+  ul li
+    background-color: $sidebar-ul-ul-li-background-color !important
+  ul a
+    font-size: $sidebar-font-size-a-active-dropdown
+    padding-left: 30px !important
+    background-color: $sidebar-dropdown-bg-a
+    color: $sidebar-ul-ul-a-color
+  &.CTAs
+    padding: 20px
+    a
+      text-align: center
+      font-size: 0.9em !important
+      display: block
+      border-radius: 5px
+      margin-bottom: 5px
+
+a
+  &.download
+    background: #fff
+    color: #7386D5
+  &.article
+    background: #6d7fcc !important
+    color: #fff !important
+    &:hover
+      background: #6d7fcc !important
+      color: #fff !important
+
+/* ---------------------------------------------------
+ *    CONTENT STYLE
+ *-----------------------------------------------------
+
+#content
+  background-color: $main-bg-color
+  padding: 20px
+  min-height: 100vh
+  transition: all 0.3s
+
+.navbar-btn
+  box-shadow: none
+  outline: none !important
+  border: none
+  // color: #2D2B32 !important
+  padding: 0
+  margin: 0
+  vertical-align: middle
+  padding-top: 12px
+  &:hover
+    // background-color: #EBEFF2
+    // color: inherit
+
+nav.navbar.navbar-default
+
+  .btn.navbar-btn
+    *
+
+
+    background-color: $navbar-btn-bg-color
+    i
+      color: $navbar-btn-color
+      font-size: 25px
+      font-weight: 100 !important
+    &:hover
+      color: #5FBEAA !important
+
+.navbar
+  padding: 15px 10px
+  // display: block
+  // position: fixed
+  // width: 100%
+  // left: $navbar-left
+  background: $navbar-bg-color
+  border: none
+  border-radius: 0
+  margin-bottom: 40px
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1)
+  ul.nav.navbar-nav.navbar-right
+    li a i, li a
+          // font-family: "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif
+          font-weight: 400
+          font-size: 20px
+          color: $navbar-ul-li-a-i
+          &:hover
+            color: #5FBEAA
+.ccc
+  width: 100%
+  // position: absolute
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"
+
+body
+  font-family: 'Poppins', sans-serif
+  background: #fafafa
+
+p
+  font-family: 'Poppins', sans-serif
+  font-size: 1.1em
+  font-weight: 300
+  line-height: 1.7em
+  color: #999
+
+a
+  color: inherit
+  text-decoration: none
+  transition: all 0.3s
+  &:hover, &:focus
+    color: inherit
+    text-decoration: none
+    transition: all 0.3s
+
+
+
+.line
+  width: 100%
+  height: 1px
+  border-bottom: 1px dashed #ddd
+  margin: 40px 0
+
+i, span
+  display: inline-block
+
+/* ---------------------------------------------------
+ *    SIDEBAR STYLE
+ *-----------------------------------------------------
+
+
+
+/* ---------------------------------------------------
+ *    MEDIAQUERIES
+ *-----------------------------------------------------
+@media (max-width: 768px)
+  #sidebar
+    min-width: 80px
+    max-width: 80px
+    text-align: center
+    margin-left: -80px !important
+  a
+    &[aria-expanded="false"]::before, &[aria-expanded="true"]::before
+      top: auto
+      bottom: 5px
+      right: 50%
+      -webkit-transform: translateX(50%)
+      -ms-transform: translateX(50%)
+      transform: translateX(50%)
+  #sidebar
+    &.active
+      margin-left: 0 !important
+    .sidebar-header h3, .CTAs
+      display: none
+    .sidebar-header strong
+      display: block
+      text-align: center
+    ul
+      li a
+        padding: 20px 10px
+        font-size: 10px !important
+        span
+        i
+          margin-right: 0
+          display: block
+          font-size: 25px !important
+      ul a
+        padding: 10px !important
+        font-size: 0.8em
+
+      li a i
+        font-size: 1.3em
+    margin-left: 0
+  #sidebarCollapse span
+    display: none
+    background-color: #EBEFF2

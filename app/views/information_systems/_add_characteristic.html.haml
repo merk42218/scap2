@@ -1,0 +1,54 @@
+.col-md-6
+  .panel.panel-info
+    .panel-heading
+      .small
+        %span.toright
+          = link_to_remove_characteristic(fn)
+        .clearfix
+    .panel-body
+      .form-group
+        .row
+          .col-md-3
+            = fn.label :name
+          .col-md-8
+            = fn.text_field :name,  :placeholder => "Название создаваемой характеристики"
+        .row
+          .col-md-3
+            = fn.label :information_system
+          .col-md-8
+            = fn.select :information_system_id, options_for_select(select_information_systems()), {}, class: 'form-control'
+        .row#characteristic_address_select
+          .col-md-3
+            = fn.label :address_id
+          .col-md-8
+            = fn.select :address_id, options_for_select(select_addresses()), {}, class: 'form-control', data: {new_part: "#{new_part(fn)}"}
+          .btn#characteristic_add_new_address
+            %a
+              Добавить новый адрес
+
+        .row#characteristic_address_n
+          -# .col-md-2
+          -#   = f.label :address_id
+
+          = fn.fields_for :address do |ff|
+            .field
+              .row#characteristic_address_new2
+                -# = ff.hidden_field :id, disabled: :disabled
+                .col-md-3
+                  = ff.label :name
+                .col-md-8
+                  = ff.text_field :name,  :placeholder => "Ссылка", disabled: :disabled
+        .btn#characteristic_add_select_address
+          %a
+            Выбрыть из существующих адресов
+        .row#characteristic_add_select_address2
+          .col-md-2
+            = fn.label :type_of_data
+          .col-md-3
+            = fn.number_field :type_of_data,  :placeholder => "Вид входных данных"
+          .col-md-2
+            = fn.label :result_type
+          .col-md-3
+            = fn.number_field :result_type,  :placeholder => "Вид результата"
+        .parse
+          = link_to "parse", ?#, data:{url: load_from_json_is_information_systems_path()}, remote: true, class: 'btn btn-primary'

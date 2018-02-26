@@ -1,0 +1,82 @@
+= form_for @characteristic do |f|
+  = hidden_field_tag(:form_id, :part_of_characteristics)
+
+  - if @characteristic.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@characteristic.errors.count, "ошибок")} Не соблюдаются ограничения целостности:"
+      %ul
+        - @characteristic.errors.full_messages.each do |message|
+          %li= message
+  .container-2.col-md-6.col.xs-12.my_form_style
+    %form
+      .row
+        .col-md-3
+          = f.label :name
+        .col-md-8
+          = f.text_field :name,  :placeholder => "Название создаваемой характеристики"
+      .row
+        .col-md-3
+          = f.label :information_system
+        .col-md-8
+          = f.select :information_system_id, options_for_select(select_information_systems()), {}, class: 'form-control'
+      .row#characteristic_address_select
+        .col-md-3
+          = f.label :address_id
+        .col-md-8
+          = f.select :address_id, options_for_select(select_addresses()), {}, class: 'form-control'
+        .btn#characteristic_add_new_address
+          %a
+            Добавить новый адрес
+
+      .row#characteristic_address_new
+        -# .col-md-2
+        -#   = f.label :address_id
+
+        = f.fields_for :address do |ff|
+          .field
+            .row#characteristic_address_new2
+              -# = ff.hidden_field :id, disabled: :disabled
+              .col-md-3
+                = ff.label :name
+              .col-md-8
+                = ff.text_field :name,  :placeholder => "Ссылка", disabled: :disabled
+      .btn#characteristic_add_select_address
+        %a
+          Выбрыть из существующих адресов
+      .row#characteristic_add_select_address2
+        .col-md-2
+          = f.label :type_of_data
+        .col-md-3
+          = f.number_field :type_of_data,  :placeholder => "Вид входных данных"
+        .col-md-2
+          = f.label :result_type
+        .col-md-3
+          = f.number_field :result_type,  :placeholder => "Вид результата"
+        -# ДОБАВЛЕНИЕ ЧАСТИ -# ДОБАВЛЕНИЕ ЧАСТИ -# ДОБАВЛЕНИЕ ЧАСТИ -# ДОБАВЛЕНИЕ ЧАСТИ -# ДОБАВЛЕНИЕ ЧАСТИ -# ДОБАВЛЕНИЕ ЧАСТИ\
+      .row
+        .col-md-12
+          = link_to_add_part_of_characteristic(f, f.object)
+        = f.fields_for :part_of_characteristics do |fn|
+          .col-md-6
+            .panel.panel-info
+              .panel-heading
+                .small
+                  %span.toright
+                    = link_to_remove_part_of_characteristic(fn)
+                  .clearfix
+              .panel-body
+                .form-group
+                  .row
+                    .col-25
+                      = fn.hidden_field :id
+                      = fn.label :partname
+                    .col-75
+                      = fn.text_field :partname,  :placeholder => "Название создаваемой части характеристики"
+                  .row
+                    .col-25
+                      = fn.label :isweight
+                    .col-75
+                      = fn.number_field :isweight
+
+      .row
+        = f.submit 'Сохранить'

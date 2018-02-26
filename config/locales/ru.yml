@@ -1,0 +1,154 @@
+ru:
+  app:
+    name: СКАП
+    company:
+      short_name: МПУ
+      department: Кафедра
+
+    addresses:
+      index: Список API-адресов
+      new-button: Новый адрес
+      edit: Редактирование адреса
+      new: Создание нового адреса
+    characteristics:
+      index: Список характеристик системы
+      new-button: Новая характеристика
+      edit: Редактирование характеристики
+      new: Создание новой характеристики
+
+    characteristic_values:
+      index: Список поступивших данных
+      new-button: Новая запись
+      edit: Редактирование
+      new: Создание новой записи
+    information_systems:
+      index: Список информационных систем
+      new-button: Новая информационная система
+      edit: Редактирование информационной системы
+      new: Новая информационная система
+    part_of_characteristics:
+      index: Список частей характеристик
+      new-button: Новая запись
+      edit: Редактирование части характеристики
+      new: Создание новой части характеристики
+    people:
+      index: Список сотрудников
+      new-button: Новый сотрудник
+      edit: Редактирование данных сотрудника
+      new: Создание нового сотрудника
+    weights:
+      index: Список весов
+      new-button: Новый вес
+      edit: Редактирование значения веса
+      new: Создание нового значения веса
+  helpers:
+    submit:
+      create: Сохранить
+      submit: Сохранить
+      update: Сохранить
+      back: Назад
+      show: Показать
+  buttons:
+    edit: Редактировать
+    destroy: Удалить
+    show: Показать
+    confirm:
+      addresses: Действительно удалить адрес?
+      characteristic_values: Действительно удалить запись?
+      characteristics: Действительно удалить характеристику?
+      information_systems: Действительно удалить информационную систему?
+      part_of_characteristics: Действительно удалить часть характеристики?
+      people: Действительно удалить сотрудника?
+      weights: Действительно удалить вес?
+    new:
+      addresses: Новый адрес
+      characteristic_values: Новая запись
+      characteristics: Новая характеристика
+      information_systems: Новая информационная система
+      part_of_characteristics: Новая часть характеристики
+      people: Новый сотрудник
+      weights: Новый вес
+  headers:
+    addresses:
+      index: Список API-адресов
+      new-button: Новый адрес
+      edit: Редактирование адреса
+      new: Создание нового адреса
+    characteristics:
+      index: Список характеристик системы
+      new-button: Новая характеристика
+      edit: Редактирование характеристики
+      new: Создание новой характеристики
+    characteristic_values:
+      index: Список поступивших данных
+      new-button: Новая запись
+      edit: Редактирование
+      new: Создание новой записи
+    information_systems:
+      index: Список информационных систем
+      new-button: Новая информационная система
+      edit: Редактирование информационной системы
+      new: Новая информационная система
+    part_of_characteristics:
+      index: Список частей характеристик
+      new-button: Новая запись
+      edit: Редактирование части характеристики
+      new: Создание новой части характеристики
+    people:
+      index: Список сотрудников
+      new-button: Новый сотрудник
+      edit: Редактирование данных сотрудника
+      new: Создание нового сотрудника
+    weights:
+      index: Список весов
+      new-button: Новый вес
+      edit: Редактирование значения веса
+      new: Создание нового значения веса
+  views:
+    pagination:
+      first: ⇤
+      last: ⇥
+      previous: ←
+      next: →
+      truncate: …
+  activerecord:
+    models:
+      address: Адрес
+      characteristic_value: Значение характеристики
+      characteristic: Характеристика
+      information_system: Информационная система
+      part_of_characteristic: Часть характеристики
+      person: Сотрудник
+      weight: Вес
+    attributes:
+      address:
+          name: Название
+      characteristic_value:
+          part_of_characteristic: Характеристика
+          value: Значение
+          person: ID сотрудника
+          time: Время
+      characteristic:
+          name: Название
+          information_system: Информационная система
+          type_of_data: Тип информации
+          result_type: Тип результатов
+          address: Адрес
+          address_id: Адрес
+      information_system:
+          name: Название
+          timezone: Временная зона
+      part_of_characteristic:
+          characteristic_id: Характеристика
+          characteristic: Характеристика
+          pid: Порядковый номер
+          partname: Название части
+          isweight: Есть ли вес?
+          default_weight: Вес по умолчанию
+      person:
+          name: ID сотрудника
+      weight:
+          name: Название
+          part_of_characteristic: Часть характеристики
+          weight: Стоимость
+          number: Номер среди других гран-при

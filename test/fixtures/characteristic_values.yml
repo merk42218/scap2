@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  value: MyString
+  part_of_characteristic: one
+  person: one
+  time: 2018-02-10 15:23:52
+
+two:
+  value: MyString
+  part_of_characteristic: two
+  person: two
+  time: 2018-02-10 15:23:52

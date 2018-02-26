@@ -1,0 +1,47 @@
+= form_for @part_of_characteristic do |f|
+  - if @part_of_characteristic.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@part_of_characteristic.errors.count, "ошибок")} Не соблюдаются ограничения целостности:"
+      %ul
+        - @part_of_characteristic.errors.full_messages.each do |message|
+          %li= message
+
+  .container-2.col-md-6.col.xs-12.my_form_style
+    %form{:action => "/action_page.php"}
+      .row
+        .col-25
+          = f.label :partname
+        .col-75
+          = f.text_field :partname,  :placeholder => "Название создаваемой части характеристики"
+      .row
+        .col-25
+          = f.label :characteristic_id
+        .col-75
+          = f.select :characteristic_id, options_for_select(@cs), {}, class: 'form-control'
+      .row
+        .col-25
+          = f.label :isweight
+        .col-75
+          = f.number_field :isweight
+
+      .row
+        = f.submit 'Сохранить'
+-# = form_for @part_of_characteristic do |f|
+-#   - if @part_of_characteristic.errors.any?
+-#     #error_explanation
+-#       %h2= "#{pluralize(@part_of_characteristic.errors.count, "error")} prohibited this part_of_characteristic from being saved:"
+-#       %ul
+-#         - @part_of_characteristic.errors.full_messages.each do |message|
+-#           %li= message
+-#
+-#   .field
+-#     = f.label :partname
+-#     = f.text_field :partname
+-#   .field
+-#     = f.label :characteristic_id
+-#     = f.text_field :characteristic_id
+-#   .field
+-#     = f.label :isweight
+-#     = f.number_field :isweight
+-#   .actions
+-#     = f.submit 'Save'

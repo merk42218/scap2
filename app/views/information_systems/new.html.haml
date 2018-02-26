@@ -1,0 +1,11 @@
+%h1 Создание новой информационной системы
+%ul.pagination
+  %li.page-item
+    %a.page-link.bc{:href => "/welcome/index"} Главная
+  %li.page-item
+    %a.page-link.bc{:href => information_systems_path}  Информационные системы
+  %li.page-item
+    %a.page-link.active-link{:href => "#"} Создание новой системы
+
+
+= render 'form'

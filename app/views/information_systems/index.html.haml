@@ -1,0 +1,80 @@
+%h2.table_name
+  Информационные системы
+
+%ul.pagination
+  %li.page-item.prev
+    %a.page-link.bc{:href => "/welcome/index"} Главная
+  %li.page-item.this
+    %a.page-link.this_page{:href => "#"} Информационные системы
+
+
+.content-wrapper
+  .container-fluid
+    / Breadcrumbs
+
+  .table-responsive
+    %table#dataTable.table.my_table_style
+      %caption
+        = link_to new_information_system_path, class: 'btn button_new' do
+          = fa_icon :plus
+          = t('headers.information_systems.new')
+      %thead
+        %tr
+          %th= InformationSystem.human_attribute_name(:name)
+          %th= InformationSystem.human_attribute_name(:timezone)
+          %th
+          %th
+          %th
+
+      %tfoot
+        %tr
+          %th= InformationSystem.human_attribute_name(:name)
+          %th= InformationSystem.human_attribute_name(:timezone)
+          %th
+          %th
+          %th
+
+      %tbody
+        - @information_systems.each do |information_system|
+          %tr
+            %td{:data => {:label => InformationSystem.human_attribute_name(:name)}}
+              = information_system.name
+            %td= information_system.timezone
+            %td
+              = link_to information_system, class: 'btn button_show' do
+                = fa_icon :eye
+                = t('buttons.show')
+            %td
+              = link_to edit_information_system_path(information_system), class: 'btn button_edit' do
+                = fa_icon :edit
+                = t('buttons.edit')
+            %td
+              = link_to information_system, method: :delete,
+              :data => { :confirm => t('buttons.confirm.information_systems') },
+              class: 'btn button_destroy' do
+                = fa_icon :times
+                = t('buttons.destroy')
+-#
+-# %h1 Listing information_systems
+-#
+-# %table
+-#   %thead
+-#     %tr
+-#       %th Name
+-#       %th Timezone
+-#       %th
+-#       %th
+-#       %th
+-#
+-#   %tbody
+-#     - @information_systems.each do |information_system|
+-#       %tr
+-#         %td= information_system.name
+-#         %td= information_system.timezone
+-#         %td= link_to 'Show', information_system
+-#         %td= link_to 'Edit', edit_information_system_path(information_system)
+-#         %td= link_to 'Destroy', information_system, method: :delete, data: { confirm: 'Are you sure?' }
+-#
+-# %br
+
+-# = link_to 'New Information system', new_information_system_path

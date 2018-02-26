@@ -1,0 +1,47 @@
+.content-wrapper
+  .container-fluid
+    / Breadcrumbs
+  %ul.pagination
+    %li.page-item
+      %a.page-link.bc{:href => "/welcome/index"} Главная
+    %li.page-item
+      %a.page-link.bc{:href => part_of_characteristics_path} Части характеристики
+    %li.page-item
+      %a.page-link.active-link{:href => "#"} Просмотр
+
+
+
+  .table-responsive.my_table_style
+    %table.table
+      %thead
+        %tr
+          %th= PartOfCharacteristic.human_attribute_name(:partname)
+          %th= PartOfCharacteristic.human_attribute_name(:characteristic_id)
+          %th= PartOfCharacteristic.human_attribute_name(:isweight)
+
+      %tbody
+        %tr
+          %td= @part_of_characteristic.partname
+          %td= (Characteristic.find(@part_of_characteristic.characteristic_id)).name
+          %td= @part_of_characteristic.isweight
+
+
+
+
+  .col-md-3.col-centre.col-sm-6
+    = link_to t('Редактировать'), edit_part_of_characteristic_path(@part_of_characteristic), class: "btn btn-primary buttons"
+-# %p#notice= notice
+-#
+-# %p
+-#   %b Partname:
+-#   = @part_of_characteristic.partname
+-# %p
+-#   %b Characteristic:
+-#   = @part_of_characteristic.characteristic
+-# %p
+-#   %b Isweight:
+-#   = @part_of_characteristic.isweight
+-#
+-# = link_to 'Edit', edit_part_of_characteristic_path(@part_of_characteristic)
+-# \|
+-# = link_to 'Back', part_of_characteristics_path

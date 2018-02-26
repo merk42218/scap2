@@ -1,0 +1,12 @@
+%h1.my-tit.row
+  .col-md-12
+    = t('headers.weights.edit')
+
+%ul.pagination
+  %li.page-item
+    %a.page-link.bc{:href => "/welcome/index"} Главная
+  %li.page-item
+    %a.page-link.bc{:href => weights_path} Веса
+  %li.page-item
+    %a.page-link.active-link{:href => "#"} Редактирование
+= render 'form'

@@ -1,0 +1,27 @@
+.col-md-6
+  .panel.panel-info
+    .panel-heading
+      %span.toright
+        = link_to_remove_part_of_characteristic(fn)
+    .clearfix
+      .panel-body
+        .form-group
+          .row
+            .col-25
+              = fn.label :partname
+            .col-75
+              = fn.text_field :partname,  :placeholder => "Название создаваемой части характеристики"
+              = fn.hidden_field :id
+          -# .row
+          -#   .col-25
+          -#     = fn.label :characteristic_id
+          -#   .col-75
+          -#     = fn.select :characteristic_id, options_for_select(select_characteristic()), {}, class: 'form-control'
+          .row
+            .col-25
+              = fn.label :isweight
+            .col-75
+              = fn.number_field :isweight
+
+    -# .row
+    -#   = fn.submit 'Сохранить'
