@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'emulator/generate1'
+
+  get 'emulator/generate2'
+
   resources :characteristic_values
   resources :weights
   resources :part_of_characteristics

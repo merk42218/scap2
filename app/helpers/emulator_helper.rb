@@ -1,0 +1,2 @@
+module EmulatorHelper
+end

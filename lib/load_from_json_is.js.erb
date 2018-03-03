@@ -1,0 +1,14 @@
+$('#<%= @oid %>').parent().parent().parent().find('.part').remove();
+alert('#<%= @oid %>');
+var html = $('#<%= @oid %>').data('new-part');
+console.log(html);
+<% @parts.each_with_index do |part, i| %>
+  var new_id = <%= i %>;
+  var regexp = new RegExp("new_part", "g");
+  var regexp2 = new RegExp("value_for_changing", "g");
+  content = html.replace(regexp, new_id);
+  content = content.replace(regexp2, "<%= part %>");
+
+  $('#<%= @oid %>').parent().parent().parent().prepend(content);
+
+<% end %>
