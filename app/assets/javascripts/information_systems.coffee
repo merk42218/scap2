@@ -14,24 +14,7 @@
     false
   false
   
-@add_characteristic_f = ->
-  $('#add_characteristic_link').on 'click', ->
-      new_id = new Date().getTime()
-      regexp = new RegExp("new_characteristic", "g")
-      content = $(this).attr('data-content')
-      content = content.replace(regexp, new_id)
-      $(this).parent().parent().after(content)
-      panel = $(this).parent().parent().parent().find('.panel-info').first()
-      console.log(panel)
-      panel.find('a.remove_characteristic').on 'click', ->
-        window.del_characteristic_body_f($(this))
-      false
-  false
   
-@characteristics_ready_f = ->
-  window.add_characteristic_f()
-  window.del_characteristic_f()
-
 @load_from_json_body_f = (link)->
   obj = $(link).parent().parent().find("[id$='address_id']");
   val = obj.val()
@@ -45,6 +28,7 @@
     window.load_from_json_body_f($(this))
     false
   false
+
   
 @add_characteristic_f = ->
   $('#add_characteristic_link').on 'click', ->
@@ -52,8 +36,8 @@
     regexp = new RegExp("new_characteristic", "g")
     content = $(this).attr('data-content')
     content = content.replace(regexp, new_id)
-    $(this).parent().parent().after(content)
-    panel = $(this).parent().parent().parent().find('.panel-info').first()
+    $('#submit_row').after(content)
+    panel = $('#submit_row').parent().find('.panel-info').first()
 
     panel.find('a.remove_characteristic').on 'click', ->
       window.del_characteristic_body_f($(this))
@@ -63,5 +47,9 @@
       false
     false
     
-# $(document).on 'turbolinks:load', @load_from_json_is_information_f
+@characteristics_ready_f = ->
+  window.add_characteristic_f()
+  window.del_characteristic_f()
+  window.load_from_json_f()
+
 $(document).on 'turbolinks:load', window.characteristics_ready_f
