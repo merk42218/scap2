@@ -7,11 +7,13 @@
     link.parent().find("input[type=hidden].remove_fields").first().val("1")
     link.parent().parent().parent().parent().hide()
   false
+  
 @del_characteristic_f = ->
   $('a.remove_characteristic').on 'click', ->
       window.del_characteristic_body_f($(this))
     false
   false
+  
 @add_characteristic_f = ->
   $('#add_characteristic_link').on 'click', ->
       new_id = new Date().getTime()
@@ -25,25 +27,25 @@
         window.del_characteristic_body_f($(this))
       false
   false
+  
 @characteristics_ready_f = ->
   window.add_characteristic_f()
   window.del_characteristic_f()
 
 @load_from_json_body_f = (link)->
-
-  $(".parse a").on 'click', ->
-    obj = $(this).parent().parent().find("[id$='address_id']");
-    val = obj.val()
-    url = $(this).data('url')
-    oid = obj.attr('id')
-    $.post(url, { address_id: val, oid: oid })
-    false
+  obj = $(link).parent().parent().find("[id$='address_id']");
+  val = obj.val()
+  url = $(link).data('url')
+  oid = obj.attr('id')
+  $.post(url, { address_id: val, oid: oid })
   false
+  
 @load_from_json_f = ->
-  $(".parse").on 'click', ->
+  $(".parse a").on 'click', ->
     window.load_from_json_body_f($(this))
     false
   false
+  
 @add_characteristic_f = ->
   $('#add_characteristic_link').on 'click', ->
     new_id = new Date().getTime()
@@ -60,5 +62,6 @@
       window.load_from_json_body_f($(this))
       false
     false
-$(document).on 'turbolinks:load', @load_from_json_is_information_f
+    
+# $(document).on 'turbolinks:load', @load_from_json_is_information_f
 $(document).on 'turbolinks:load', window.characteristics_ready_f
