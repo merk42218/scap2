@@ -4,17 +4,18 @@ class WeightsController < ApplicationController
   # GET /weights
   # GET /weights.json
   def index
-    @weights = Weight.all
+    authorize! :index, @weights = Weight.all
   end
 
   # GET /weights/1
   # GET /weights/1.json
   def show
+    authorize! :show, @weight
   end
 
   # GET /weights/new
   def new
-    @weight = Weight.new
+    authorize! :create,   @weight = Weight.new
     @poc = [['', '']]
     (PartOfCharacteristic.all).each do |a|
       @poc << [a.partname, a.id]
@@ -23,6 +24,7 @@ class WeightsController < ApplicationController
 
   # GET /weights/1/edit
   def edit
+    authorize! :edit, @weight
     @poc = [['', '']]
     (PartOfCharacteristic.all).each do |a|
       @poc << [a.partname, a.id]
@@ -62,6 +64,7 @@ class WeightsController < ApplicationController
   # DELETE /weights/1
   # DELETE /weights/1.json
   def destroy
+    authorize! :destroy, @weight
     @weight.destroy
     respond_to do |format|
       format.html { redirect_to weights_url, notice: 'Weight was successfully destroyed.' }

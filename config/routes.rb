@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get 'stat/gra1'
+
+  get 'stat/gra2'
+
+  resources :users_roles
+  resources :roles
+  resources :my_users
   devise_for :users
   # get 'persons/profile'
 

@@ -20,7 +20,10 @@
 
           %strong
             %i.fa.fa-user-secret
-        = render  'application/inside'
+        - if user_signed_in?
+          = render  'application/inside'
+        - else
+          = render 'application/inside'
 
       #content.ccc
         %nav.navbar.navbar-default

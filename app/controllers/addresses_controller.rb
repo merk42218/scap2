@@ -1,24 +1,27 @@
 class AddressesController < ApplicationController
   before_action :set_address, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show, :index]
+  # load_and_authorize_resource
   # GET /addresses
   # GET /addresses.json
   def index
-    @addresses = Address.all
+    authorize! :index,  @addresses = Address.all
   end
 
   # GET /addresses/1
   # GET /addresses/1.json
   def show
+    authorize! :show, @address
   end
 
   # GET /addresses/new
   def new
-    @address = Address.new
+    authorize! :create,  @address = Address.new
   end
 
   # GET /addresses/1/edit
   def edit
+    authorize! :edit, @address
   end
 
   # POST /addresses
@@ -54,6 +57,7 @@ class AddressesController < ApplicationController
   # DELETE /addresses/1
   # DELETE /addresses/1.json
   def destroy
+    authorize! :destroy, @address
     @address.destroy
     respond_to do |format|
       format.html { redirect_to addresses_url, notice: 'Address was successfully destroyed.' }

@@ -4,21 +4,23 @@ class InformationSystemsController < ApplicationController
   # GET /information_systems
   # GET /information_systems.json
   def index
-    @information_systems = InformationSystem.all
+    authorize! :index,  @information_systems = InformationSystem.all
   end
 
   # GET /information_systems/1
   # GET /information_systems/1.json
   def show
+    authorize! :show, @information_system
   end
 
   # GET /information_systems/new
   def new
-    @information_system = InformationSystem.new
+    authorize! :create,  @information_system = InformationSystem.new
   end
 
   # GET /information_systems/1/edit
   def edit
+    authorize! :edit, @information_system
   end
 
   # POST /information_systems
@@ -72,6 +74,7 @@ class InformationSystemsController < ApplicationController
   # DELETE /information_systems/1
   # DELETE /information_systems/1.json
   def destroy
+    authorize! :destroy, @information_system
     @information_system.destroy
     respond_to do |format|
       format.html { redirect_to information_systems_url, notice: 'Information system was successfully destroyed.' }

@@ -4,16 +4,19 @@ class CharacteristicsController < ApplicationController
   # GET /characteristics
   # GET /characteristics.json
   def index
-    @characteristics = Characteristic.all
+    authorize! :index,  @characteristics = Characteristic.all
+
   end
 
   # GET /characteristics/1
   # GET /characteristics/1.json
   def show
+    authorize! :show, @characteristic
   end
 
   # GET /characteristics/new
   def new
+    authorize! :create, @characteristic
     @is = [['', '']]
     (InformationSystem.all).each do |a|
       @is << [a.name, a.id]
@@ -29,6 +32,7 @@ class CharacteristicsController < ApplicationController
 
   # GET /characteristics/1/edit
   def edit
+    authorize! :edit, @characteristic
     @characteristic.build_address
     @addresses = [['', '']]
     (Address.all).each do |a|
@@ -73,6 +77,7 @@ class CharacteristicsController < ApplicationController
   # DELETE /characteristics/1
   # DELETE /characteristics/1.json
   def destroy
+  authorize! :destroy, @characteristic
   @characteristic.destroy
   respond_to do |format|
     format.html { redirect_to characteristics_url, notice: 'Characteristic was successfully destroyed.' }
@@ -95,7 +100,7 @@ private
   :result_type,
   :address_id,
   part_of_characteristics_attributes: [:id, :_destroy,:partname,:isweight ],
-  address_attributes: [:id, :name] 
+  address_attributes: [:id, :name]
 )
     # , address_attributes: [:name, :id])
   end

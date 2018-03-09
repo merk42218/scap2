@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180309115210) do
+ActiveRecord::Schema.define(version: 20180309133231) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,14 @@ ActiveRecord::Schema.define(version: 20180309115210) do
     t.index ["name"], name: "index_people_on_name", unique: true
   end
 
+  create_table "roles", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "info"
+    t.text "full_info"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -90,6 +98,15 @@ ActiveRecord::Schema.define(version: 20180309115210) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "users_roles", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "role_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["role_id"], name: "index_users_roles_on_role_id"
+    t.index ["user_id"], name: "index_users_roles_on_user_id"
+  end
+
   create_table "weights", force: :cascade do |t|
     t.string "name", null: false
     t.integer "weight"
@@ -104,5 +121,7 @@ ActiveRecord::Schema.define(version: 20180309115210) do
   add_foreign_key "characteristics", "addresses"
   add_foreign_key "characteristics", "information_systems"
   add_foreign_key "part_of_characteristics", "characteristics"
+  add_foreign_key "users_roles", "roles"
+  add_foreign_key "users_roles", "users"
   add_foreign_key "weights", "part_of_characteristics"
 end

@@ -1,0 +1,49 @@
+%ul.pagination
+  %li.page-item.prev
+    %a.page-link.bc{:href => "/welcome/index"} Главная
+  %li.page-item.this
+    %a.page-link.active-link{:href => "#"} Адреса
+
+
+.content-wrapper.my_table_style
+  .container-fluid
+    / Breadcrumbs
+
+  .table-responsive
+    %table#dataTable.table.my_table_style
+      %caption
+        = link_to new_user_registration_path, class: 'btn button_new' do
+          = fa_icon :plus
+          = t('headers.users.new')
+      %thead
+        %tr
+          %th= User.human_attribute_name(:email)
+          -# %th
+          -# %th
+          -# %th
+
+      %tfoot
+        %tr
+          %th= User.human_attribute_name(:email)
+          -# %th
+          -# %th
+          -# %th
+
+      %tbody
+        - @users.each do |user|
+          %tr
+            %td= user.email
+            -# %td
+            -#   = link_to user, class: 'btn button_show' do
+            -#     = fa_icon :eye
+            -#     = t('buttons.show')
+            -# %td
+            -#   = link_to edit_user_path(user), class: 'btn button_edit' do
+            -#     = fa_icon :edit
+            -#     = t('buttons.edit')
+            -# %td
+            -#   = link_to user, :method => :delete,
+            -#   :data => { :confirm => t('buttons.confirm.users') },
+            -#   class: 'btn button_destroy' do
+            -#     = fa_icon :times
+            -#     = t('buttons.destroy')

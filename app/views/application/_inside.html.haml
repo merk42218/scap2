@@ -28,6 +28,53 @@
           %i.fa.fa-users{:style => "color: #B348AE " }
           Люди
 
+    %li.active
+      %a{"aria-expanded" => "false", "data-toggle" => "collapse", :href => "#homeSubmenu4"}
+        Статистика
+      %ul#homeSubmenu4.collapse.list-unstyled
+
+        %li
+          %a{:href => stat_gra1_path}
+            %i.fa.fa-outdent{:style => "color: #0684C3 " }
+            В будущем статистика 1
+        %li
+          %a{:href => stat_gra2_path}
+            %i.fa.fa-list{:style => "color: #70AF00 " }
+            В будущем статистика 2
+
+  %li.active
+    %a{"aria-expanded" => "false", "data-toggle" => "collapse", :href => "#homeSubmenu2"}
+      Генераторы
+    %ul#homeSubmenu2.collapse.list-unstyled
+
+      %li
+        %a{:href => "http://localhost:3000/emulator/generate1"}
+          %i.fa.fa-outdent{:style => "color: #0684C3 " }
+          Генератор "Проходная"
+      %li
+        %a{:href => "http://localhost:3000/emulator/generate2"}
+          %i.fa.fa-list{:style => "color: #70AF00 " }
+          Генератор "Банк"
+  %li.active
+    %a{"aria-expanded" => "false", "data-toggle" => "collapse", :href => "#homeSubmenu3"}
+      Управление правами доступа
+    %ul#homeSubmenu3.collapse.list-unstyled
+
+      %li
+        %a{:href =>  my_users_path}
+          %i.fa.fa-users{:style => "color: #34D3EB " }
+          Пользователи
+      %li
+        %a{:href => users_roles_path}
+          %i.fa.fa-users{:style => "color: #34D3EB " }
+          Пользователи роли
+      %li
+        %a{:href => roles_path}
+          %i.fa.fa-users{:style => "color: #34D3EB " }
+          Роли
+
+
+
   %li
     %a{:href => information_systems_path}
       %i.fa.fa-outdent{:style => "color: #FDC418 " }
@@ -58,8 +105,6 @@
       Люди
 
 
-
--#
 -#
 -#   %a{href:  part_of_characteristics_path }
 -#     .img_n{:style => "color: #ADB7BE" }

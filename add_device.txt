@@ -23,3 +23,19 @@ Devise — это ruby-гем, предоставляющий возможнос
   end
 6.rails generate devise User
 7. bundle exec rake db:migrate
+
+CANCAN
+1. gem 'cancan'
+2. Выполняем в терминале команду bundle install
+3.rails g cancan:ability
+4. rails g scaffold role name:string info:string full_info:text 
+   rails g scaffold users_role user:references role:references
+
+  def has_role?(user, role)
+    user.roles.each do |r|
+      if r.name == role
+        return true
+      end
+    end
+    return false
+  end

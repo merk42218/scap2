@@ -37,16 +37,19 @@
               = link_to address, class: 'btn button_show' do
                 = fa_icon :eye
                 = t('buttons.show')
-            %td
-              = link_to edit_address_path(address), class: 'btn button_edit' do
-                = fa_icon :edit
-                = t('buttons.edit')
-            %td
-              = link_to address, :method => :delete,
-              :data => { :confirm => t('buttons.confirm.addresses') },
-              class: 'btn button_destroy' do
-                = fa_icon :times
-                = t('buttons.destroy')
+            -if can? :edit , address
+              %td
+                = link_to edit_address_path(address), class: 'btn button_edit' do
+                  = fa_icon :edit
+                  = t('buttons.edit')
+            -if can? :destroy, address
+              %td
+                = link_to address, :method => :delete,
+                :data => { :confirm => t('buttons.confirm.addresses') },
+                class: 'btn button_destroy' do
+                  = fa_icon :times
+                  = t('buttons.destroy')
+
 -# %h1 Listing addresses
 -#
 -# %table

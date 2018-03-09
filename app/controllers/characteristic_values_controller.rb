@@ -4,17 +4,19 @@ class CharacteristicValuesController < ApplicationController
   # GET /characteristic_values
   # GET /characteristic_values.json
   def index
-    @characteristic_values = CharacteristicValue.all
+   authorize! :index,  @characteristic_values = CharacteristicValue.all
+
   end
 
   # GET /characteristic_values/1
   # GET /characteristic_values/1.json
   def show
+    authorize! :show, @characteristic_value
   end
 
   # GET /characteristic_values/new
   def new
-    @characteristic_value = CharacteristicValue.new
+    authorize! :create,  @characteristic_value = CharacteristicValue.new
     @poc = [['', '']]
     (PartOfCharacteristic.all).each do |a|
       @poc << [a.partname, a.id]
@@ -27,6 +29,7 @@ class CharacteristicValuesController < ApplicationController
 
   # GET /characteristic_values/1/edit
   def edit
+    authorize! :edit, @characteristic_value
     @poc = [['', '']]
     (PartOfCharacteristic.all).each do |a|
       @poc << [a.partname, a.id]
@@ -40,7 +43,7 @@ class CharacteristicValuesController < ApplicationController
   # POST /characteristic_values
   # POST /characteristic_values.json
   def create
-    @characteristic_value = CharacteristicValue.new(characteristic_value_params)
+    authorize! :create,    @characteristic_value = CharacteristicValue.new(characteristic_value_params)
 
     respond_to do |format|
       if @characteristic_value.save
@@ -70,6 +73,7 @@ class CharacteristicValuesController < ApplicationController
   # DELETE /characteristic_values/1
   # DELETE /characteristic_values/1.json
   def destroy
+    authorize! :destroy, @characteristic_value
     @characteristic_value.destroy
     respond_to do |format|
       format.html { redirect_to characteristic_values_url, notice: 'Characteristic value was successfully destroyed.' }
