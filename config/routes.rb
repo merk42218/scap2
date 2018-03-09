@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
+  devise_for :users
+  # get 'persons/profile'
+
   get 'emulator/generate1'
 
   get 'emulator/generate2'
-
+  # get 'persons/profile', as: 'user_root'
   resources :characteristic_values
   resources :weights
   resources :part_of_characteristics

@@ -1,0 +1,25 @@
+Аутентификация приложений.
+В данной работе для вутентификации пользователей ипользуется гем Devise. 
+https://github.com/plataformatec/devise
+Devise — это ruby-гем, предоставляющий возможности для аутентификации в rails-приложениях. Devise работает в связке с гемом Warden, который в свою очередь предоставляет сам механизм для аутентификации в rack-базированных ruby-приложениях. Основные особенности Devise описаны ниже:
+
+    основан на Rack;
+    является законченным MVC-решением, основанным на Rails;
+    разрешает вход в систему по нескольким моделям одновременно;
+    основан на модульности: использует только то, что вам действительно необходимо.
+
+1. Добавляем в Gemfile следующую строку: gem 'devise'
+2. Выполняем в терминале команду bundle install
+3. Устанавливаем гем в системе командой rails generate devise:install
+4. Добавляем в config/environments/development.rb следующую строку: config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+5.rails generate controller persons profile
+6.controller/application_controller.rb + 
+  def after_sign_in_path_for(resource)
+    current_user_path
+  end
+
+  def after_sign_out_path_for(resource_or_scope)
+    request.referrer
+  end
+6.rails generate devise User
+7. bundle exec rake db:migrate

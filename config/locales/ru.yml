@@ -51,6 +51,8 @@ ru:
   buttons:
     edit: Редактировать
     destroy: Удалить
+    signout: Выйти
+    signin: Войти
     show: Показать
     confirm:
       addresses: Действительно удалить адрес?

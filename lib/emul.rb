@@ -70,7 +70,7 @@ class Emulator
       if (data_start.hour >=9) && (data_start.hour <=17)
         p = (self.part_of_characteristics[generate_int(keys)]).create_new(data_start,self.users.shuffle.first.id)
         strs << p
-        data_start += 120 +  generate_int(300)
+        data_start += 120 +  generate_int(60*300)
         # p data_start
       else
         data_start += 60*60

@@ -33,15 +33,36 @@
             #bs-example-navbar-collapse-1.collapse.navbar-collapse
               %ul.nav.navbar-nav.navbar-right
 
+                -# %li
+                -#   %a{:href => "#"} Page
+                -# %li
+                -#   %a{:href => "#"} Page
+                -# %li
+                -#   %a{:href => "#"} Page
                 %li
-                  %a{:href => "#"} Page
-                %li
-                  %a{:href => "#"} Page
-                %li
-                  %a{:href => "#"} Page
-                %li
-                  %a{:href => "#"}
-                    %i.fa.fa-sign-in{:style =>"color: #5FBEAA !important"}
+                - if user_signed_in?
+                  %span.sign
+                    #{current_user.email}
+                    = link_to destroy_user_session_path, method: :delete,
+                    class: 'sign_out' do
+                      %i.fa.fa-sign-out{:style =>"color: #5FBEAA !important"}
+                      = t('buttons.signout')
+                    -# = link_to 'Выйти', destroy_user_session_path, :method => :delete
+                - else
+                  %span
+                    = link_to new_user_session_path,
+                    class: 'btn button_destroy' do
+                      %i.fa.fa-sign-in{:style =>"color: #5FBEAA !important"}
+                      = t('buttons.signin')
+                -# = link_to 'Выйти', destroy_
+                -#   = link_to 'Войти', new_user_session_path
+                -#   или #{link_to 'Зарегистрироваться', new_user_registration_path}
+                -#
+                -#   %a{:href => new_user_session_path}
+                -#     %i.fa.fa-sign-in{:style =>"color: #5FBEAA !important"}
+                -# %li
+                -#   %a{:href => destroy_user_session_path}
+                -#     %i.fa.fa-sign-out{:style =>"color: #5FBEAA !important"}
         -# %h2 Collapsible Sidebar Using Bootstrap 3
 
         -# %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -55,6 +76,8 @@
         -# .line
         -# %h3 Lorem Ipsum Dolor
         -# %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        %p.notice= notice
+        %p.alert= alert
 
         = yield
     -# =render 'application/navbar'
