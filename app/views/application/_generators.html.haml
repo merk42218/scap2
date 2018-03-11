@@ -1,0 +1,13 @@
+%li.active
+  %a{"aria-expanded" => "false", "data-toggle" => "collapse", :href => "#homeSubmenu2"}
+    Генераторы
+  %ul#homeSubmenu2.collapse.list-unstyled
+
+    %li
+      %a{:href => "http://localhost:3000/emulator/generate1"}
+        %i.fa.fa-outdent{:style => "color: #0684C3 " }
+        Генератор "Проходная"
+    %li
+      %a{:href => "http://localhost:3000/emulator/generate2"}
+        %i.fa.fa-list{:style => "color: #70AF00 " }
+        Генератор "Банк"

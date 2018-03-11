@@ -1,0 +1,16 @@
+%li.active
+  %a{"aria-expanded" => "false", "data-toggle" => "collapse", :href => "#homeSubmenu3"}
+    Управление правами доступа
+  %ul#homeSubmenu3.collapse.list-unstyled
+    %li
+      %a{:href =>  my_users_path}
+        %i.fa.fa-users{:style => "color: #34D3EB " }
+        Пользователи
+    %li
+      %a{:href => users_roles_path}
+        %i.fa.fa-users{:style => "color: #34D3EB " }
+        Пользователи роли
+    %li
+      %a{:href => roles_path}
+        %i.fa.fa-users{:style => "color: #34D3EB " }
+        Роли
