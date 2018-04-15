@@ -21,7 +21,14 @@ module CharacteristicsHelper
     end
     return addresses
   end
+  def return_poc(id)
+    poc = []
+    (Characteristic.find(id).part_of_characteristics).each do |e|
+      poc << e.keys
+    end
+    return poc
 
+  end
 
   def link_to_add_characteristic(form, person)
   	new_object = Characteristic.new()
@@ -31,7 +38,7 @@ module CharacteristicsHelper
   	end
   	link_to(?#, class: 'btn mbottom20 btn-info',
   	id: 'add_characteristic_link', data: {content: "#{fields}"}) do
-  	fa_icon("plus") + " Новый комментарий"
+  	fa_icon("plus") + " Новая характеристика"
   	end
   	end
   	def link_to_remove_characteristic(form)

@@ -8,8 +8,10 @@
       %a.page-link.bc{:href => characteristics_path} Характеристики
     %li.page-item
       %a.page-link.active-link{:href => "#"} Просмотр
-
-
+    %li.page-item.this
+      %a.page-link.parse#cparse{:href => load_from_json_is_characteristics_path(characteristic_id: @characteristic.id)} ЗАГРУЗИТЬ ДАННЫЕ
+    %li.page-item
+      %a.page-link.bc{:href => add_time_characteristics_path(id: @characteristic.id)}  ЗАГРУЗИТЬ ДАННЫЕ ДЛЯ ОБРАБОТКИ
 
   .table-responsive.my_table_style
     %table.table
@@ -17,8 +19,7 @@
         %tr
           %th= Characteristic.human_attribute_name(:name)
           %th=  Characteristic.human_attribute_name(:information_system)
-          %th= Characteristic.human_attribute_name(:type_of_data)
-          %th=  Characteristic.human_attribute_name(:result_type)
+
           %th= Characteristic.human_attribute_name(:address_id)
 
       %tbody
@@ -26,9 +27,6 @@
           %td= @characteristic.name
           %td= (InformationSystem.find(@characteristic.information_system_id)).name
           %td= (Address.find(@characteristic.address_id)).name
-          %td= @characteristic.type_of_data
-          %td= @characteristic.result_type
-
 
 
 

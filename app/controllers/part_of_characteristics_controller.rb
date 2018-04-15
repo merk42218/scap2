@@ -81,6 +81,7 @@ class PartOfCharacteristicsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def part_of_characteristic_params
-      params.require(:part_of_characteristic).permit(:partname, :characteristic_id, :isweight)
+      params.require(:part_of_characteristic).permit(:partname, :characteristic_id, :isweight, :type_of_data,
+        :result_type)
     end
 end

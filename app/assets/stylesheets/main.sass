@@ -1,8 +1,30 @@
+body
+  background-color: #F2F3F8
+.part
 
+  position: relative
+  display: block
+  width: 92%
+  left: 150px
+.part2
+  position: relative
+  display: block
+  width: 100%
+@media screen and (max-width: 600px)
+  .part
+    width: 100%
+    left: 0
+  .part2
+    width: 74%
+
+
+// Пагинация
 ul.pagination
   li.this a
     background-color: $ul-pagination-li-this-bg !important
     color: $ul-pagination-li-this-color !important
+  li.this a.parse
+    background-color: $ul-pagination-li-this-parse-bg !important
   li.prev a
     background-color:  $ul-pagination-li-bg !important
     color: $ul-pagination-li-color !important
@@ -10,19 +32,8 @@ ul.pagination
 
 #characteristic_address_new
   display: none
-// #characteristic_address_select
 
-
-
-
-.my_form_style
-  background-color: #FFFFFF !important
-  *
-    margin: 2px
-
-  .row
-    padding-left: 15px !important
-    padding-right: 5px !important
+// Цвета в таблице
 $warning: #d6ae01
 $danger: #991400
 $info: #3333ff
@@ -51,10 +62,15 @@ $info: #3333ff
     background-color: #E6F4E1 !important
   border: none
   color: #4B545C
-body
-  width: 100%
-.my_table_style
-  // $table-background: white
-  // background-color: $table-background
-  .btn
-    // background-color: inherit !important
+
+
+// Формы
+
+.my_form_style
+  background-color: #FFFFFF !important
+  *
+    margin: 2px
+
+  .row
+    padding-left: 15px !important
+    padding-right: 5px !important

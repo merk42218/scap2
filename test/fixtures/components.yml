@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  characteristic: one
+  part_of_characteristics: one
+  sampling_step: 1
+  pid: 1
+
+two:
+  characteristic: two
+  part_of_characteristics: two
+  sampling_step: 1
+  pid: 1

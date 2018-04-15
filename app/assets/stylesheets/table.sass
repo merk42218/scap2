@@ -1,66 +1,110 @@
-$table-head-bg: white
-$table-head-color: #212120
-table.my_table_style
-  background-color: #FFFFFF
-  border-collapse: collapse
-  width: 100%
-  tr
-    border-top: 1px solid #242D3A !important
-
-  th
-    background-color: $table-head-bg
-    opacity: .7
-    color: $table-head-color
-    font-weight: bold
-    // border-bottom: 0.125em #242D3A
-
-    line-height: 1.5
-    padding: 0.75em
-    text-align: left
-
-  td
-    // border: 0.125em solid #333
-
-    line-height: 1.5
-    padding: 0.75em
-    text-align: left
-
-/* Stack rows vertically on small screens
-@media (max-width: 30em)
-  /* Hide column labels
-  .my_table_style
-    thead tr
-      position: absolute
-      top: -9999em
-      left: -9999em
+// thead
+$table_style-table-thead-background-color: #F4F3F8
+$table_style-table-thead-color: #656770
+// ***********************************************************     tbody
+// *********************** tr
+$table_style-table-tbody-tr-color: #ACADB2
+$table_style-table-tbody-tr-background-color: #FFFFFF
+// hover
+$table_style-table-tbody-tr-color-hover: #9D9DA5
+$table_style-table-tbody-tr-background-color-hover: #F7F6FA
+.table_style
+  table
+    border: 1px solid #ccc
+    width: 100%
+    margin: 0
+    padding: 0
+    padding-top: 10px
+    margin-top: 20px
+    
+    border-collapse: collapse
+    border-spacing: 0
     tr
-      // border: 0.125em solid #333
-      + tr
-        margin-top: 1.5em
-      display: block
-    /* Leave a space between table rows
-    /* Get table cells to act like rows
-    td
-      display: block
-      border: none
-      // border-bottom: 0.125em solid #333
-      /* Leave a space for data labels
-      padding-left: 50%
-      &:before
-        content: attr(data-label)
-        display: inline-block
-        font-weight: bold
-        line-height: 1.5
-        margin-left: -100%
-        width: 100%
-  /* Add data labels
+      border: 1px solid #ddd
+      padding: 5px
 
-/* Stack labels vertically on smaller screens
-@media (max-width: 20em)
-  .my_table_style
-    td
-      padding-left: 0.75em
-      &:before
+    th, td
+      padding: 10px
+      text-align: center
+    th
+      text-transform: uppercase
+      font-size: 14px
+      letter-spacing: 1px
+    thead
+      background-color: $table_style-table-thead-background-color
+      color: $table_style-table-thead-color
+
+    tbody
+      tr
+        color: $table_style-table-tbody-tr-color
+        background-color: $table_style-table-tbody-tr-background-color
+        &:hover
+          color: $table_style-table-tbody-tr-color-hover
+          background-color: $table_style-table-tbody-tr-background-color-hover
+
+  @media screen and (max-width: 600px)
+    table
+      border: 0
+      width: 95%
+      thead
+        display: none
+      tr
+        margin-bottom: 10px
         display: block
-        margin-bottom: 0.75em
-        margin-left: 0
+        border-bottom: 2px solid #ddd
+      td
+        display: block
+        text-align: right
+        font-size: 13px
+        border-bottom: 1px dotted #ccc
+        &:last-child
+          border-bottom: 0
+        &:before
+          content: attr(data-label)
+          float: left
+          text-transform: uppercase
+          font-weight: bold
+
+
+a.button_new
+  color: $color-for-button-new
+  background-color: $bg-color-for-button-new !important
+  &:hover
+    color: $color-for-button-new-hover
+    background-color: $bg-color-for-button-new-hover !important
+
+$color-for-button-show:  #248DAD
+$bg-color-for-button-show: inherit
+$color-for-button-show-hover:  #2C2E3E
+$bg-color-for-button-show-hover: inherit
+
+a.button_show
+  color: $color-for-button-show
+  background-color: $bg-color-for-button-show !important
+  &:hover
+    color: $color-for-button-show-hover
+    background-color: $bg-color-for-button-show-hover !important
+
+$color-for-button-edit: #3B9E72
+$bg-color-for-button-edit: inherit
+$color-for-button-edit-hover: #2C2E3E
+$bg-color-for-button-edit-hover: inherit
+
+a.button_edit
+  color: $color-for-button-edit
+  background-color: $bg-color-for-button-edit !important
+  &:hover
+    color: $color-for-button-edit-hover
+    background-color: $bg-color-for-button-edit-hover !important
+
+$color-for-button-destroy: #C01E2C
+$bg-color-for-button-destroy: inherit
+$color-for-button-destroy-hover: #2C2E3E
+$bg-color-for-button-destroy-hover: inherit
+
+a.button_destroy
+  color: $color-for-button-destroy
+  background-color: $bg-color-for-button-destroy !important
+  &:hover
+    color: $color-for-button-destroy-hover
+    background-color: $bg-color-for-button-destroy-hover !important

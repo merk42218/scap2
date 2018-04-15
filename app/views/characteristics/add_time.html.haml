@@ -1,0 +1,25 @@
+.container-2.col-md-6.col.xs-12.my_form_style
+  .row
+  %h3 Загрузить данные в преобразованном виде
+
+  .controls
+    .row
+      .col-md-6
+        -# .form-group
+        -#   %label{:for => "form_name"} Часть характеристики
+        -#   %input#form_name.form-control{"data-error" => "Firstname is required.", :name => "name", :placeholder => "Please enter your firstname *", :required => "required", :type => "text"}/
+        -#   .help-block.with-errors
+      .col-md-6
+        .form-group
+          = form_tag(add_time2_characteristics_path(), method: "get", class: "form-control") do
+            = hidden_field_tag(:id, @characteristic.id )
+            = label_tag(:q, "Введите шаг дискретизации:")
+            = text_field_tag(:q)
+            -# %input{:name => "id", :type => "hidden", :value => "#{params[:q]}", :class => "btn-btn-default"}/
+
+            = submit_tag("Сохранить")
+          -# %label{:for => "form_lastname"} Шаг дискретизации
+          -# %input#form_lastname.form-control{"data-error" => "Lastname is required.", :name => "surname", :placeholder => "Please enter your lastname *", :required => "required", :type => "text"}/
+          -# .help-block.with-errors
+
+  -# %a.btn.btn-default{:href => add_time2_characteristics_path() } ЗАГРУЗИТЬ В ОБЩЕМ ВИДЕ

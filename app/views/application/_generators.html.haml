@@ -1,6 +1,12 @@
 %li.active
-  %a{"aria-expanded" => "false", "data-toggle" => "collapse", :href => "#homeSubmenu2"}
-    Генераторы
+%li.active.with_icon{align: "center"}
+  -# .with_icon{align: "center"}
+
+  %a{"aria-expanded" => "false", "data-toggle" => "collapse", :href => "#homeSubmenu2", align: "center"}
+    .with_icon{ align: "center"}
+      = image_tag 'support.png', alt: "1", class: "icons_png"
+    %span.text_under_icon{ align: "center"}
+      Генераторы
   %ul#homeSubmenu2.collapse.list-unstyled
 
     %li

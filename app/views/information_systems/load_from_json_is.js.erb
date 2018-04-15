@@ -8,4 +8,5 @@ var html = $('#<%= @oid %>').data('new-part');
   content = content.replace(regexp2, "<%= part %>");
 
   $('#<%= @oid %>').parent().parent().parent().find(".parts-field").prepend(content);
+  window.del_part_of_characteristic_f()
 <% end %>

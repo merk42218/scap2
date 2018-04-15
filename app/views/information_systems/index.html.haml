@@ -22,6 +22,7 @@
         %tr
           %th= InformationSystem.human_attribute_name(:name)
           %th= InformationSystem.human_attribute_name(:timezone)
+          %th= InformationSystem.human_attribute_name(:dis_time)
           %th
           %th
           %th
@@ -30,6 +31,7 @@
         %tr
           %th= InformationSystem.human_attribute_name(:name)
           %th= InformationSystem.human_attribute_name(:timezone)
+          %th= InformationSystem.human_attribute_name(:dis_time)
           %th
           %th
           %th
@@ -40,6 +42,7 @@
             %td{:data => {:label => InformationSystem.human_attribute_name(:name)}}
               = information_system.name
             %td= information_system.timezone
+            %td= information_system.dis_time
             %td
               = link_to information_system, class: 'btn button_show' do
                 = fa_icon :eye

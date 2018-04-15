@@ -19,6 +19,8 @@
         %tr
           %th= PartOfCharacteristic.human_attribute_name(:partname)
           %th= PartOfCharacteristic.human_attribute_name(:characteristic_id)
+          %th= PartOfCharacteristic.human_attribute_name(:type_of_data)
+          %th=  PartOfCharacteristic.human_attribute_name(:result_type)
           %th= PartOfCharacteristic.human_attribute_name(:isweight)
           %th
           %th
@@ -28,6 +30,8 @@
         %tr
           %th= PartOfCharacteristic.human_attribute_name(:partname)
           %th= PartOfCharacteristic.human_attribute_name(:characteristic_id)
+          %th= PartOfCharacteristic.human_attribute_name(:type_of_data)
+          %th=  PartOfCharacteristic.human_attribute_name(:result_type)
           %th= PartOfCharacteristic.human_attribute_name(:isweight)
           %th
           %th
@@ -38,6 +42,8 @@
           %tr
             %td= part_of_characteristic.partname
             %td= (Characteristic.find(part_of_characteristic.characteristic_id)).name
+            %td= part_of_characteristic.type_of_data
+            %td= part_of_characteristic.result_type
             %td= part_of_characteristic.isweight
             %td
               = link_to part_of_characteristic, class: 'btn button_show' do

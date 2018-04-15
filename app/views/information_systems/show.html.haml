@@ -17,11 +17,13 @@
         %tr
           %th= InformationSystem.human_attribute_name(:name)
           %th= InformationSystem.human_attribute_name(:timezone)
+          %th= InformationSystem.human_attribute_name(:dis_time)
 
       %tbody
         %tr
           %td= @information_system.name
           %td= @information_system.timezone
+          %td= @information_system.dis_time
 
   .col-md-3.col-centre.col-sm-6
     = link_to t('Редактировать'), edit_information_system_path(@information_system), class: "btn btn-primary buttons"

@@ -140,8 +140,11 @@ ru:
       information_system:
           name: Название
           timezone: Временная зона
+          dis_time: Шаг дискретизации
       part_of_characteristic:
           characteristic_id: Характеристика
+          type_of_data: Тип информации
+          result_type: Тип результатов
           characteristic: Характеристика
           pid: Порядковый номер
           partname: Название части
@@ -158,6 +161,7 @@ ru:
         email: Пользовательское имя/электронная почта
         birthday: Дата рождения
         password: Пароль
+        remember_me: Запомнить меня
         password_confirmation: Подтверждение пароля
         reset_password_email_sent_at: Дата отправления письма для смены пароля
         activation_state: Статус активации

@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Characteristic:
+  = @component.characteristic
+%p
+  %b Part of characteristics:
+  = @component.part_of_characteristics
+%p
+  %b Sampling step:
+  = @component.sampling_step
+%p
+  %b Pid:
+  = @component.pid
+
+= link_to 'Edit', edit_component_path(@component)
+\|
+= link_to 'Back', components_path

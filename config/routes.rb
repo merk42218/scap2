@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :connections
+  resources :components
   get 'stat/gra1'
 
   get 'stat/gra2'
@@ -16,7 +18,14 @@ Rails.application.routes.draw do
   resources :characteristic_values
   resources :weights
   resources :part_of_characteristics
-  resources :characteristics
+  resources :characteristics do
+    collection do
+      get :load_from_json_is
+      get :add_time
+      get :add_time2
+      get :make_the_same
+    end
+  end
   get 'welcome/index', as: :welcome
 
   resources :people
@@ -26,6 +35,7 @@ Rails.application.routes.draw do
       post :load_from_json_is
     end
   end
+  # get 'welcome/load_from_json', as: :lfj
   root 'welcome#index'
     # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

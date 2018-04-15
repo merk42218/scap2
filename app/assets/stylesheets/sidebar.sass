@@ -1,114 +1,110 @@
-
-body
-  font-family: 'Muli', Arial, sans-serif
-#button_sidebar1, #button_sidebar2
-  font-size: 25px
-.sidenav
-  vertical-align: middle
-  .img_n, .fa-caret-down
-    vertical-align: middle
-
-    display: inline
-    color: $sidebar-icons-color !important
-    font-size: 24px
-    margin-right: 5px
-  font-family: 'Muli', Arial, sans-serif
-  text-transform: uppercase
-  a#button_sidebar1, a#button_sidebar2
-    padding-right: 0 !important
-    margin-right: 0 !important
-  border-right: 1px solid $border-nav-color-v
-  // border-top: 1px solid $border-nav-color
-  height: 100%
-  width: 250px
-  position: fixed
-  z-index: 1
-  top: $sidebar-top
-  left: 0
-  background-color: $background-color-sidebar
-  overflow-x: hidden
-  transition: 0.5s
-  padding-top: 60px
-  a#button_sidebar1, a#button_sidebar1
-    padding: 8px 8px 8px 32px
-    width: auto
-    text-decoration: none
-    font-size: 20px
-    color: #818181
-    display: block
-    transition: 0.3s
-    &:hover
-      color: #EE7648
-      span
-        border-bottom: 1px solid #EE7648
-  .closebtn
+$sidebar-width: 150px
+$sidebar-background-color: #2C2E3E
+#sidebar
+  li.list
+    position: relative
+  li.list ul
+    li
+      list-style-type: none
     position: absolute
-    color: black
+    left: 130px
+
     top: 0
-    right: 25px
-    font-size: 36px
-    margin-left: 50px
-.dropdown-btn
-  span
-    color: #EE7648
-.sidenav a, .dropdown-btn,
-  span
-    // padding-bottom: 10px
-    display: inline-block
-    vertical-align: middle
-    text-transform: uppercase
-    font-size: 11px
-    font-weight: bold
-  &:hover
-    color: #EE7648
-    span
-      border-bottom: 1px solid #EE7648
-  padding: 6px 8px 6px 16px
-  text-decoration: none
-  font-size: 11px
-  color: $sidebar-a-color
-  display: block
-  border: none
-  background: none
-  width: 100%
-  text-align: left
-  cursor: pointer
-  outline: none
-.sidenav a:hover, .dropdown-btn:hover
-  // color: white
-.active
-  background-color: green
-  color: #f1f1f1
-
-
-/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content
-
-.dropdown-container
-
-  display: none
-  background-color: $sidebar-dropdown-background-color
-  padding-left: 8px
-  a
-    // color: $sidebar-dropdown-color !important
-    &:hover
-      color: #EE7648
-      span
-        border-bottom: 1px solid #EE7648
-/* Optional: Style the caret down icon
-
-.fa-caret-down
-  float: right
-  color: black
-  padding-right: 8px
-@media screen and (max-height: 450px)
-  .sidenav
-    padding-top: 15px
-    a
-      font-size: 18px
-
-@media screen and (max-width: 600px)
-  .dropdown-btn
-    color: black
-
-  .sidenav
     display: none
+  ul :first-child
+    a
+      border-radius: 10px 10px 0 0
+  ul :last-child
+    a
+      border-radius: 0 0 10px 10px 
+  ul li a
+    height: 50px
+
+    display: block
+    text-decoration: none
+    color: #777
+    background: green
+    padding: 10px
+    width: 200px
+  li.list
+    &:hover ul, &.jshover ul
+      display: block
+    &:hover a, &.jshover a
+      color: green
+      background-color: #2C2E3E
+    &:hover ul a:hover, &.jshover ul a:hover
+      background-color: #cccccc
+      background-image: none
+      color: yellow
+
+
+
+
+.vertical-menu
+
+  z-index: 100
+  // overflow: scroll
+  background-color: $sidebar-background-color
+  width: $sidebar-width
+  position: fixed
+  transform: translateX(0)
+  transition: 300ms transform
+  height: 100%
+  top: 0
+  left: 0
+  .logo
+    background-image: url("logo7.png") !important
+    background-size: cover
+    background-color: #282A3C
+    display: block
+    height: 80px
+    line-height: 120px
+    white-space: nowrap
+    color: #fff
+    font-size: 24px
+    text-align: center
+  ul li a.active_link
+    border-right: 4px solid #00C5DC !important
+    i
+      color: #00C5DC !important
+  ul li a
+    display: block
+    text-decoration: none
+    height: 90px
+    color: #757894
+    text-align: center
+    font-size: 13px
+    line-height: 1.25
+    transition: 300ms background-color
+    padding: 15px 15px
+    overflow: hidden
+    word-wrap: nowrap
+    text-overflow: ellipsis
+
+    &:hover
+      background-color: #292B3A
+      i
+        color: #85879C
+
+    *
+      color: inherit
+    i
+      font-size: 25px
+      margin-bottom: 10px
+      color: #454760
+      font-weight: 200
+      display: block
+    &:hover
+      background: rgba(0,0,0,0.1)
+  &.active
+    transform: translateX(-100%)
+.vert-opened
+  transform: translate(-150px)
+  width: 100%
+@media screen and (max-width: 600px)
+  .vertical-menu
+    transform: translate(-100%)
+    &.active
+      transform: translateX(0)
+  .vert-opened
+    transform: translate(150px)

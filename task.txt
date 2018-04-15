@@ -1,0 +1,2 @@
+rails g scaffold Adata x:array y:array characteristic:references name:string
+bundle exec rake db:migrate

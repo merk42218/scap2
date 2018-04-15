@@ -34,6 +34,7 @@ gem 'kaminari'
 gem 'kaminari-bootstrap'
 gem 'paper_trail'
 gem 'paperclip'
+gem 'foundation-icons-sass-rails'
 gem 'sorcery'
 gem 'puma'
 gem 'devise'
@@ -43,7 +44,10 @@ gem 'momentjs-rails'
 gem 'bootstrap3-datetimepicker-rails'
 gem 'twitter-typeahead-rails'
 gem 'httparty'
-
+gem 'hightop'
+gem 'chartkick'
+gem 'countries'
+gem 'faker'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

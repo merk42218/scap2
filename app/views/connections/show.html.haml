@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Calculated field:
+  = @connection.calculated_field
+%p
+  %b Operation:
+  = @connection.operation
+%p
+  %b Part of characteristic:
+  = @connection.characteristic_id
+%p
+  %b Employ:
+  = @connection.employ
+
+= link_to 'Edit', edit_connection_path(@connection)
+\|
+= link_to 'Back', connections_path

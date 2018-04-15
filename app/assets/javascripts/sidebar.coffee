@@ -21,20 +21,7 @@
       # $(".app-name").css("width","250px")
 
       false
-  # $('.dropdown-btn').on 'click', ->
-  # dropdown = $('.dropdown-btn')
-  # for i in [0...dropdown.length]
-  #   alert("+")
-  #
-  #   (dropdown[i]).on 'click', ->
-  #     if !((dropdown[i]).hasClass("active"))
-  #        topnav.addClass('active')
-  #        alert("+")
-  #     else
-  #        topnav.removeClass('active')
-  #        alert("-")
-  #        # topnav.addClass('topnav')
-  #
+
 
 
 

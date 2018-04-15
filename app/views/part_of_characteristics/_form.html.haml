@@ -23,6 +23,16 @@
           = f.label :isweight
         .col-75
           = f.number_field :isweight
+      .row
+        .col-md-3
+          = f.label :type_of_data
+        .col-md-5
+          = f.select :type_of_data, options_for_select(type_of_data()), {}, class: 'form-control'
+      .row
+        .col-md-2
+          = f.label :result_type
+        .col-md-3
+          = f.number_field :result_type,  :placeholder => "Вид результата"
 
       .row
         = f.submit 'Сохранить'

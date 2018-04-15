@@ -1,0 +1,22 @@
+= form_for @connection do |f|
+  - if @connection.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@connection.errors.count, "error")} prohibited this connection from being saved:"
+      %ul
+        - @connection.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :calculated_field
+    = f.text_field :calculated_field
+  .field
+    = f.label :operation
+    = f.number_field :operation
+  .field
+    = f.label :characteristic_id
+    = f.text_field :characteristic_id
+  .field
+    = f.label :employ
+    = f.number_field :employ
+  .actions
+    = f.submit 'Save'

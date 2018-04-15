@@ -21,6 +21,11 @@
         .col-75
           = f.text_field :timezone
       .row
+        .col-md-25
+          = f.label :dis_time
+        .col-md-75
+          = f.number_field :dis_time,  :placeholder => "Шаг дискретизации"
+      .row
         .col-md-12
           = link_to_add_characteristic(f, f.object)
       .row#submit_row

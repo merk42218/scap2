@@ -1,5 +1,5 @@
 Аутентификация приложений.
-В данной работе для вутентификации пользователей ипользуется гем Devise. 
+В данной работе для вутентификации пользователей ипользуется гем Devise.
 https://github.com/plataformatec/devise
 Devise — это ruby-гем, предоставляющий возможности для аутентификации в rails-приложениях. Devise работает в связке с гемом Warden, который в свою очередь предоставляет сам механизм для аутентификации в rack-базированных ruby-приложениях. Основные особенности Devise описаны ниже:
 
@@ -13,7 +13,7 @@ Devise — это ruby-гем, предоставляющий возможнос
 3. Устанавливаем гем в системе командой rails generate devise:install
 4. Добавляем в config/environments/development.rb следующую строку: config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 5.rails generate controller persons profile
-6.controller/application_controller.rb + 
+6.controller/application_controller.rb +
   def after_sign_in_path_for(resource)
     current_user_path
   end
@@ -28,8 +28,10 @@ CANCAN
 1. gem 'cancan'
 2. Выполняем в терминале команду bundle install
 3.rails g cancan:ability
-4. rails g scaffold role name:string info:string full_info:text 
+4. rails g scaffold role name:string info:string full_info:text
    rails g scaffold users_role user:references role:references
+
+
 
   def has_role?(user, role)
     user.roles.each do |r|
@@ -39,3 +41,18 @@ CANCAN
     end
     return false
   end
+
+
+
+
+
+---------------Графики
+gem 'chartkick'
+bundle install
+
++
+//= require highcharts
+//= require chartkick
+
+
+rails g scaffold Component  characteristic:references part_of_characteristics:references sampling_step:integer pid:integer

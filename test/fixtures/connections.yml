@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  calculated_field: MyString
+  operation: 1
+  part_of_characteristic: one
+  employ: 1
+
+two:
+  calculated_field: MyString
+  operation: 1
+  part_of_characteristic: two
+  employ: 1

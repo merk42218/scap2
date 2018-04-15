@@ -64,8 +64,8 @@ class InformationSystemsController < ApplicationController
         p = Lfj.load_char_parts(@adr.name)
         unless p.kind_of?(String)
           example_row = p[0]
-          example_row.keys[1..-1].each do |key|
-            @parts << [key]
+          example_row.keys[0..-1].each do |key|
+            @parts << key
           end
         end
       end
@@ -90,13 +90,14 @@ class InformationSystemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def information_system_params
-      params.require(:information_system).permit(:name, :timezone,
+      params.require(:information_system).permit(:name, :timezone,  :dis_time,
       characteristics_attributes: [:_destroy, :id,   :name,
         :information_system_id,
         :type_of_data,
         :result_type,
         :address_id,
-        part_of_characteristics_attributes: [:id, :_destroy,:partname,:isweight ],
+        part_of_characteristics_attributes: [:id, :_destroy,:partname,:isweight, :type_of_data,
+          :result_type ],
         address_attributes: [:id, :name] ])
     end
 end

@@ -7,14 +7,15 @@
     link.parent().find("input[type=hidden].remove_fields").first().val("1")
     link.parent().parent().parent().parent().hide()
   false
-  
+false
+
 @del_characteristic_f = ->
   $('a.remove_characteristic').on 'click', ->
       window.del_characteristic_body_f($(this))
     false
   false
-  
-  
+
+
 @load_from_json_body_f = (link)->
   obj = $(link).parent().parent().find("[id$='address_id']");
   val = obj.val()
@@ -22,14 +23,15 @@
   oid = obj.attr('id')
   $.post(url, { address_id: val, oid: oid })
   false
-  
+
+
 @load_from_json_f = ->
   $(".parse a").on 'click', ->
     window.load_from_json_body_f($(this))
     false
   false
 
-  
+
 @add_characteristic_f = ->
   $('#add_characteristic_link').on 'click', ->
     new_id = new Date().getTime()
@@ -46,7 +48,7 @@
       window.load_from_json_body_f($(this))
       false
     false
-    
+
 @characteristics_ready_f = ->
   window.add_characteristic_f()
   window.del_characteristic_f()
