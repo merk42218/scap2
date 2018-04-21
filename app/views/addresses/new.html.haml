@@ -1,11 +1,22 @@
-%h1 Создание нового адреса
-%ul.pagination
-  %li.page-item
-    %a.page-link.bc{:href => "/welcome/index"} Главная
-  %li.page-item
-    %a.page-link.bc{:href => addresses_path}  Адреса
-  %li.page-item
-    %a.page-link.active-link{:href => "#"} Создание нового адреса
+%ol#breadcrumb
+  %li
+    %a{:href => "/welcome/index"}
+      %i.glyphicons.glyphicons-home
+      %span.sr-only Главная
+  %li
+    %a{:href => addresses_path}  Адреса
+  %li.current
+    %a{:href => "#"}  Создание нового адреса
+%h1.header_table Создание нового адреса
+
+-#
+-# %ul.pagination
+-#   %li.page-item
+-#     %a.page-link.bc{:href => "/welcome/index"} Главная
+-#   %li.page-item
+-#     %a.page-link.bc{:href => addresses_path}  Адреса
+-#   %li.page-item
+-#     %a.page-link.active-link{:href => "#"} Создание нового адреса
 
 = render 'form'
 -# %h1 New address

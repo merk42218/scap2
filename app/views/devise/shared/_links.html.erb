@@ -1,12 +1,15 @@
+<div class="shared">
 <%- if controller_name != 'sessions' %>
   <%= link_to "Войти", new_session_path(resource_name) %><br />
 <% end -%>
 
-<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+<%- if false && devise_mapping.registerable? && controller_name != 'registrations' %>
+  <div class ="reg">
   <%= link_to "Регистрация", new_registration_path(resource_name) %><br />
+  </div>
 <% end -%>
 
-<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+<%- if  false && devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
   <%= link_to "Забыли пароль?", new_password_path(resource_name) %><br />
 <% end -%>
 
@@ -23,3 +26,4 @@
     <%= link_to "Войти в систему с #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %><br />
   <% end -%>
 <% end -%>
+</div>

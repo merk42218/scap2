@@ -11,41 +11,51 @@
     = csrf_meta_tags
 
   %body
-    %nav.vertical-menu.js-vertical-menu
-      %a.logo
+    - if user_signed_in?
+      %nav.vertical-menu.js-vertical-menu
+        .logo
 
-      - if user_signed_in?
-        = render  'application/inside'
-      - else
-        = render 'application/inside'
-    .part
-      #content.ccc.js-content-wrap
+          %i.fa.fa-tv
+          %span
+            -# СКАП
+          -#   search
+          -# fa-tv
 
-        %nav.top-panel
-          .container-fluid
-            %i.material-icons.js-toggle-menu
-              menu
-            .top-panel-right
+        - if user_signed_in?
+          = render  'application/inside'
+        - else
+          = render 'application/inside'
+      .part
+        #content.ccc.js-content-wrap
+
+          %nav.top-panel
+            .container-fluid
               - if user_signed_in?
-                %span.sign
-                  %i.material-icons
-                    account_circle
-                  #{current_user.email}
-                  = link_to destroy_user_session_path, method: :delete,
-                  class: 'sign_out' do
+                %i.material-icons.js-toggle-menu.bar
+                  menu
+              .top-panel-right
+                - if user_signed_in?
+                  %span.sign
                     %i.material-icons
-                      menu
-                    = t('buttons.signout')
-              - else
-                %span
-                  = link_to new_user_session_path,
-                  class: 'btn button_destroy' do
-                    %i.material-icons
-                      menu
-                    = t('buttons.signin')
+                      account_circle
+                    #{current_user.email}
+                    = link_to destroy_user_session_path, method: :delete,
+                    class: 'sign_out' do
+                      %i.material-icons
+                        menu
+                      = t('buttons.signout')
+                -# - else
+                -#   %span
+                -#     = link_to new_user_session_path,
+                -#     class: 'btn button_destroy' do
+                -#       %i.material-icons
+                -#         menu
+                -#       = t('buttons.signin')
 
-        -# %p.notice= notice
-        -# %p.alert= alert
+          -# %p.notice= notice
+          -# %p.alert= alert
 
-        .container-fluid
-          = yield
+          .container-fluid
+            = yield
+    - else
+      =yield

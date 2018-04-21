@@ -125,24 +125,14 @@ class CharacteristicsController < ApplicationController
     def add_time()
       id = params[:id]
       @characteristic = Characteristic.find(id)
-       # raise ((params)).inspect
-      # if !(params[:q]).nil?
-      #   @time = params[:q]
-      # else
-      #   @time
-      # end
-      # # raise ((@characteristic).inspect + (@time).inspect)
-      # raise (@time).inspect
     end
     def add_time2()
       id = params[:id]
       @characteristic = Characteristic.find(id)
-       # raise ((params)).inspect
       if !(params[:q]).nil?
         @time = params[:q]
       else
         @time = 0
-
       end
       @connections= @characteristic.connections
       @operation = @connections.first.operation

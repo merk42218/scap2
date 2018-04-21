@@ -54,4 +54,5 @@ false
   window.del_characteristic_f()
   window.load_from_json_f()
 
+
 $(document).on 'turbolinks:load', window.characteristics_ready_f

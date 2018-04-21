@@ -3,24 +3,35 @@ $table_style-table-thead-background-color: #F4F3F8
 $table_style-table-thead-color: #656770
 // ***********************************************************     tbody
 // *********************** tr
-$table_style-table-tbody-tr-color: #ACADB2
+$table_style-table-tbody-tr-color: #454760
 $table_style-table-tbody-tr-background-color: #FFFFFF
 // hover
-$table_style-table-tbody-tr-color-hover: #9D9DA5
+$table_style-table-tbody-tr-color-hover: #2C2E3E
 $table_style-table-tbody-tr-background-color-hover: #F7F6FA
+
+.show
+  color: #34BFA3
+  display: block
+.edit
+  color: #36A3F7
+.delete
+  color: #F4516C
+.new
+  background-color: #EBE9F2
+  color: #6C6C74
 .table_style
   table
-    border: 1px solid #ccc
-    width: 100%
+    // border: 1px solid #ccc
+    width: 95%
     margin: 0
     padding: 0
     padding-top: 10px
-    margin-top: 20px
-    
+    margin: 30px
+
     border-collapse: collapse
     border-spacing: 0
     tr
-      border: 1px solid #ddd
+      border-bottom: 1px solid #ddd
       padding: 5px
 
     th, td
@@ -33,6 +44,8 @@ $table_style-table-tbody-tr-background-color-hover: #F7F6FA
     thead
       background-color: $table_style-table-thead-background-color
       color: $table_style-table-thead-color
+      tr
+        border: 1px solid #ddd
 
     tbody
       tr
@@ -43,9 +56,24 @@ $table_style-table-tbody-tr-background-color-hover: #F7F6FA
           background-color: $table_style-table-tbody-tr-background-color-hover
 
   @media screen and (max-width: 600px)
+    .show
+      color: #34BFA3
+      text-align: right
+      display: block
+    .edit
+      color: #36A3F7
+      display: block
+      text-align: right
+
+
+    .delete
+      color: #F4516C
+      display: block
+      text-align: right
+
     table
       border: 0
-      width: 95%
+      width: 80%
       thead
         display: none
       tr
@@ -62,6 +90,7 @@ $table_style-table-tbody-tr-background-color-hover: #F7F6FA
         &:before
           content: attr(data-label)
           float: left
+
           text-transform: uppercase
           font-weight: bold
 

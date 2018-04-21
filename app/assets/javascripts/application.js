@@ -41,6 +41,7 @@ $(document).on ('turbolinks:load',function () {
 
 
     $(function () {
+
       var location = window.location.href;
       var cur_url = '/' + location.split('/').pop();
 

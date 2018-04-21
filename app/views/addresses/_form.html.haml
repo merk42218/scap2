@@ -5,22 +5,14 @@
       %ul
         - @address.errors.full_messages.each do |message|
           %li= message
-
-
-
-  .container-2.col-md-5.col.xs-12.my_form_style
-    %form
+  .row
+    .form.col-md-5
       .row
-        .col-25
-          = f.label :name
-        .col-75
-          = f.text_field :name,  :placeholder => "Ссылка"
-      .row
-        = f.submit 'Сохранить'
-= form_for @address do |f|
-  - if @address.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@address.errors.count, "error")} prohibited this address from being saved:"
-      %ul
-        - @address.errors.full_messages.each do |message|
-          %li= message
+        .form_general.col-md-11
+          .label_field.col-md-12
+            = f.label :name
+          .text_field.col-md-12
+            = f.text_field :name,  :placeholder => "Ссылка"
+
+        .button
+          = f.submit 'Сохранить'

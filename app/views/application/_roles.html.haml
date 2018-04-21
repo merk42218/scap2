@@ -2,27 +2,21 @@
 -#   %a{"aria-expanded" => "false", "data-toggle" => "collapse", :href => "#homeSubmenu3"}
 -#     Управление правами доступа
 -#   %ul#homeSubmenu3.collapse.list-unstyled
-%li
-  %a{:href =>  my_users_path}
-    %i.fa.fa-users
-    Пользователи
-%li
-  %a{:href => users_roles_path}
-    %i.fa.fa-users
-    Пользователи роли
-%li
-  %a{:href => roles_path}
-    %i.fa.fa-users
-    Роли
+
 %li.list
-  %a
-    this
+  %a{:href => "#"}
+    %i.fa.fa-users
+    Управление правами доступа
   %ul
     %li
-      %a{:href => "#"} HTML
+      %a{:href =>  my_users_path}
+        -# %i.fa.fa-users
+        Пользователи
     %li
-      %a{:href => "#"} CSS
+      %a{:href => users_roles_path}
+        -# %i.fa.fa-users
+        Пользователи роли
     %li
-      %a{:href => "#"} PHP
-    %li
-      %a{:href => "#"} MySQL
+      %a{:href => roles_path}
+        -# %i.fa.fa-users
+        Роли

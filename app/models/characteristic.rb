@@ -13,8 +13,6 @@ class Characteristic < ApplicationRecord
   validates :name, presence: true
   # validates :type_of_data,  presence: true
   # validates :result_type,  presence: true
-  def return_adr ()
 
-  end
 
 end

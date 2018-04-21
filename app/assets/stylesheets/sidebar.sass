@@ -1,13 +1,36 @@
 $sidebar-width: 150px
-$sidebar-background-color: #2C2E3E
+$sidebar-background-color: #292929
+$sidebar-background-logo-img: url("logo7.png")
+// Цвет списка
+$sidebar-ul-a-and-li-a-color: white
+$sidebar-ul-a-and-li-a-color-hover:    white
+
+// LOGO
+
+$logo-background-color: #292929
+$logo-font-size: 60px
+// dropdown
+$sidebar-dropdown-list-backgroung: #292B3A
+$sidebar-dropdown-list-left: 115px
+$sidebar-dropdown-a-width: 200px
 #sidebar
+  // DROPDOWN  DROPDOWN  DROPDOWN  DROPDOWN  DROPDOWN  DROPDOWN  DROPDOWN  DROPDOWN  DROPDOWN  dropdown
   li.list
     position: relative
   li.list ul
     li
       list-style-type: none
+      a
+        height: 50px
+
+        display: block
+        text-decoration: none
+        color: pink
+        background: pink
+        padding: 10px
+        width: $sidebar-dropdown-a-width
     position: absolute
-    left: 130px
+    left: $sidebar-dropdown-list-left
 
     top: 0
     display: none
@@ -16,34 +39,23 @@ $sidebar-background-color: #2C2E3E
       border-radius: 10px 10px 0 0
   ul :last-child
     a
-      border-radius: 0 0 10px 10px 
-  ul li a
-    height: 50px
-
-    display: block
-    text-decoration: none
-    color: #777
-    background: green
-    padding: 10px
-    width: 200px
+      border-radius: 0 0 10px 10px
   li.list
     &:hover ul, &.jshover ul
       display: block
     &:hover a, &.jshover a
-      color: green
-      background-color: #2C2E3E
+      color: $sidebar-ul-a-and-li-a-color
+      background-color: $sidebar-dropdown-list-backgroung
     &:hover ul a:hover, &.jshover ul a:hover
-      background-color: #cccccc
+      text-decoration: underline
+      background-color: $sidebar-background-color
       background-image: none
-      color: yellow
+      color: $sidebar-ul-a-and-li-a-color-hover
 
 
-
-
+// SIDEBAR  SIDEBAR  SIDEBAR  SIDEBAR  SIDEBAR  SIDEBAR  SIDEBAR  SIDEBAR  SIDEBAR  SIDEBAR  SIDEBAR  SIDEBAR
 .vertical-menu
-
   z-index: 100
-  // overflow: scroll
   background-color: $sidebar-background-color
   width: $sidebar-width
   position: fixed
@@ -53,45 +65,54 @@ $sidebar-background-color: #2C2E3E
   top: 0
   left: 0
   .logo
-    background-image: url("logo7.png") !important
-    background-size: cover
-    background-color: #282A3C
+    // background-image: $sidebar-background-logo-img
+    border-right: 1px solid #35495E
+    // background-size: cover
+    background-color: $logo-background-color
+    background-position: center
+    background-repeat: no-repeat
     display: block
-    height: 80px
+    height: 85px
     line-height: 120px
     white-space: nowrap
-    color: #fff
-    font-size: 24px
-    text-align: center
-  ul li a.active_link
-    border-right: 4px solid #00C5DC !important
     i
-      color: #00C5DC !important
+      color: pink
+      font-size: $logo-font-size
+      text-align: center
+      display: block
+      padding-top: 20px
+    margin-bottom: 40px
+  ul li a.active_link
+    border-right: 4px solid #43BB86 !important
+    background-color: #414141 !important
+
+    i
+      color: #43BB86 !important
   ul li a
     display: block
     text-decoration: none
     height: 90px
-    color: #757894
+    color: #E0E0E1
     text-align: center
     font-size: 13px
     line-height: 1.25
-    transition: 300ms background-color
+    transition: 300ms
     padding: 15px 15px
     overflow: hidden
     word-wrap: nowrap
     text-overflow: ellipsis
 
     &:hover
-      background-color: #292B3A
+      background-color: #444445 !important
       i
-        color: #85879C
+        color: white
 
     *
       color: inherit
     i
       font-size: 25px
       margin-bottom: 10px
-      color: #454760
+      color: #E0E0E1
       font-weight: 200
       display: block
     &:hover

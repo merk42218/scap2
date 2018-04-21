@@ -1,54 +1,62 @@
-%ul.pagination
-  %li.page-item.prev
-    %a.page-link.bc{:href => "/welcome/index"} Главная
-  %li.page-item.this
-    %a.page-link.active-link{:href => "#"} Адреса
+-# %ul.pagination
+-#   %li.page-item.prev
+-#     %a.page-link.bc{:href => "/welcome/index"} Главная
+-#   %li.page-item.this
+-#     %a.page-link.active-link{:href => "#"} Адреса
+
+-#
+-# .content-wrapper.my_table_style
+-#   .container-fluid
+-#     / Breadcrumbs
+%ol#breadcrumb
+  %li
+    %a{:href => "#"}
+      %i.glyphicons.glyphicons-home
+      %span.sr-only Главная
+  %li
+    %a{:href => "#"} Комплектующие
+  %li
+    %a{:href => "#"} Процессы
+  %li.current
+    %a{:href => "#"} Intel
 
 
-.content-wrapper.my_table_style
-  .container-fluid
-    / Breadcrumbs
+.table_style
+  %table
+    %caption
+      = link_to new_address_path, class: 'btn new' do
+        = fa_icon :plus
+        = t('headers.addresses.new')
+    %thead
+      %tr
+        %th= "№"
+        %th= Address.human_attribute_name(:name)
+        %th
+        %th
+        %th
 
-  .table-responsive
-    %table#dataTable.table.my_table_style
-      %caption
-        = link_to new_address_path, class: 'btn button_new' do
-          = fa_icon :plus
-          = t('headers.addresses.new')
-      %thead
+
+    %tbody
+      - @addresses.each_with_index do |address, i|
         %tr
-          %th= Address.human_attribute_name(:name)
-          %th
-          %th
-          %th
-
-      %tfoot
-        %tr
-          %th= Address.human_attribute_name(:name)
-          %th
-          %th
-          %th
-
-      %tbody
-        - @addresses.each do |address|
-          %tr
-            %td= address.name
+          %td{"data-label" =>"№"}= i+1
+          %td{"data-label" => Address.human_attribute_name(:name)}= address.name
+          %td
+            = link_to address, class: 'btn show' do
+              = fa_icon :eye
+              = t('buttons.show')
+          -if can? :edit , address
             %td
-              = link_to address, class: 'btn button_show' do
-                = fa_icon :eye
-                = t('buttons.show')
-            -if can? :edit , address
-              %td
-                = link_to edit_address_path(address), class: 'btn button_edit' do
-                  = fa_icon :edit
-                  = t('buttons.edit')
-            -if can? :destroy, address
-              %td
-                = link_to address, :method => :delete,
-                :data => { :confirm => t('buttons.confirm.addresses') },
-                class: 'btn button_destroy' do
-                  = fa_icon :times
-                  = t('buttons.destroy')
+              = link_to edit_address_path(address), class: 'btn edit' do
+                = fa_icon :edit
+                = t('buttons.edit')
+          -if can? :destroy, address
+            %td
+              = link_to address, :method => :delete,
+              :data => { :confirm => t('buttons.confirm.addresses') },
+              class: 'btn delete' do
+                = fa_icon :times
+                = t('buttons.destroy')
 
 -# %h1 Listing addresses
 -#
